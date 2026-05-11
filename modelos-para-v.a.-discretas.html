@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Capitulo 3 Modelos para v.a. Discretas | Modelos de Probabilidad para v.a. Discretas</title>
+<meta name="author" content="J.A. Rueda-Restrepo">
+<meta name="description" content="3.1 Binomial La distribución binomial tiene sus raíces en los trabajos pioneros del matemático suizo Jacob Bernoulli (1654-1705), quien en su obra póstuma “Ars Conjectandi” (1713) estableció los...">
+<meta name="generator" content="bookdown 0.46 with bs4_book()">
+<meta property="og:title" content="Capitulo 3 Modelos para v.a. Discretas | Modelos de Probabilidad para v.a. Discretas">
+<meta property="og:type" content="book">
+<meta property="og:description" content="3.1 Binomial La distribución binomial tiene sus raíces en los trabajos pioneros del matemático suizo Jacob Bernoulli (1654-1705), quien en su obra póstuma “Ars Conjectandi” (1713) estableció los...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Capitulo 3 Modelos para v.a. Discretas | Modelos de Probabilidad para v.a. Discretas">
+<meta name="twitter:description" content="3.1 Binomial La distribución binomial tiene sus raíces en los trabajos pioneros del matemático suizo Jacob Bernoulli (1654-1705), quien en su obra póstuma “Ars Conjectandi” (1713) estableció los...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.10.0/transition.js"></script><script src="libs/bs3compat-0.10.0/tabs.js"></script><script src="libs/bs3compat-0.10.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Modelos de Probabilidad para v.a. Discretas</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled"><li><a class="" href="index.html"><span class="header-section-number">Capitulo 3</span> Modelos para v.a. Discretas</a></li></ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/jarueda">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="modelos-para-v.a.-discretas" class="section level1" number="3">
+<h1>
+<span class="header-section-number">Capitulo 3</span> Modelos para v.a. Discretas<a class="anchor" aria-label="anchor" href="#modelos-para-v.a.-discretas"><i class="fas fa-link"></i></a>
+</h1>
+<div id="binomial" class="section level2" number="3.1">
+<h2>
+<span class="header-section-number">3.1</span> Binomial<a class="anchor" aria-label="anchor" href="#binomial"><i class="fas fa-link"></i></a>
+</h2>
+<p>La distribución binomial tiene sus raíces en los trabajos pioneros del matemático suizo <strong>Jacob Bernoulli</strong> (1654-1705), quien en su obra póstuma <em>“Ars Conjectandi”</em> (1713) estableció los fundamentos de la teoría de la probabilidad moderna. Bernoulli estudió experimentos con solo dos resultados posibles, que hoy llamamos <strong>ensayos Bernoulli</strong>.</p>
+<p>Posteriormente, el matemático francés <strong>Abraham de Moivre</strong> (1667-1754) formalizó la distribución binomial en su libro <em>“The Doctrine of Chances”</em> (1718), con lo cual se desarrolló el modelo que lleva el número combinatorio para calcular probabilidades.</p>
+</div>
+<div id="función-de-probabilidad-binomial-1" class="section level2" number="3.2">
+<h2>
+<span class="header-section-number">3.2</span> Función de probabilidad Binomial<a class="anchor" aria-label="anchor" href="#funci%C3%B3n-de-probabilidad-binomial-1"><i class="fas fa-link"></i></a>
+</h2>
+<p>Un experimento aleatorio consistente en la realización de <span class="math inline">\(n\)</span> ensayos Bernoulli tales que:</p>
+<ul>
+<li>Cada ensayo realizado es Independiente</li>
+<li>Cada ensayo ocurre solo de dos formas denominadas <strong>Exito</strong> y <strong>Fracaso</strong>
+</li>
+<li>La probabilidad de que ocurra un éxito en cada ensayo se mantiene <strong>constante</strong> y de nota por <span class="math inline">\(p\)</span>
+</li>
+</ul>
+<div id="definición-de-la-variable-aleatoria-1" class="section level3" number="3.2.1">
+<h3>
+<span class="header-section-number">3.2.1</span> Definición de la variable aleatoria<a class="anchor" aria-label="anchor" href="#definici%C3%B3n-de-la-variable-aleatoria-1"><i class="fas fa-link"></i></a>
+</h3>
+<p>Sea <span class="math inline">\(X\)</span> la v.a. que cuenta el número de éxitos cuando de realizan <span class="math inline">\(n\)</span> ensayos Bernoulli.</p>
+<p>Entonces,</p>
+<p>Una variable aleatoria <span class="math inline">\(X\)</span> sigue una <strong>distribución binomial</strong> con parámetros <span class="math inline">\(n\)</span> y <span class="math inline">\(p\)</span>, denotada como:</p>
+<p><span class="math display">\[X \sim Bin(x,n, p)\]</span></p>
+<p>si su función de probabilidad está dada por:</p>
+<p><span class="math display">\[P(X = x) = \binom{n}{x} p^x (1-p)^{n-x} \;\;\text{para}\;\; x=\{0, 1, ...,n\}\]</span></p>
+<p>donde:</p>
+<ul>
+<li><p><span class="math inline">\(n\)</span> = número total de ensayos Bernoulli independientes</p></li>
+<li><p><span class="math inline">\(x\)</span> = número de éxitos (<span class="math inline">\(x = 0, 1, 2, \ldots, n\)</span>)</p></li>
+<li><p><span class="math inline">\(p\)</span> = probabilidad de éxito en cada ensayo</p></li>
+<li><p><span class="math inline">\(\binom{n}{x} = \frac{n!}{x!(n-x)!}\)</span> = coeficiente binomial</p></li>
+</ul>
+<p>El <strong>soporte</strong> de una distribución es el conjunto de valores que puede tomar la variable aleatoria con probabilidad mayor que cero.</p>
+<p>Para la binomial:
+<span class="math display">\[X = \{0, 1, 2, \ldots, n\}\]</span>
+—</p>
+<p>La distribución binomial modela situaciones donde:</p>
+<ul>
+<li><p>Existe un número <strong>fijo</strong> de ensayos independientes</p></li>
+<li><p>Cada ensayo tiene <strong>dos resultados posibles</strong> (éxito/fracaso)</p></li>
+<li><p>La <strong>probabilidad de éxito</strong> (<span class="math inline">\(p\)</span>) permanece constante</p></li>
+</ul>
+<hr>
+</div>
+<div id="ejemplo-2" class="section level3" number="3.2.2">
+<h3>
+<span class="header-section-number">3.2.2</span> Ejemplo<a class="anchor" aria-label="anchor" href="#ejemplo-2"><i class="fas fa-link"></i></a>
+</h3>
+<p>Suponga un experimento en el que se evalúan <strong>4 semillas</strong> de un lote para verificar si germinan. Cada semilla puede:</p>
+<ul>
+<li><p><strong>Éxito (E)</strong>: Germina con probabilidad <span class="math inline">\(p\)</span></p></li>
+<li><p><strong>Fracaso (F)</strong>: No germina con probabilidad <span class="math inline">\(1-p\)</span></p></li>
+</ul>
+</div>
+<div id="espacio-muestral-1" class="section level3" number="3.2.3">
+<h3>
+<span class="header-section-number">3.2.3</span> Espacio Muestral<a class="anchor" aria-label="anchor" href="#espacio-muestral-1"><i class="fas fa-link"></i></a>
+</h3>
+<p>Con 4 ensayos, tenemos <span class="math inline">\(2^4 = 16\)</span> posibles resultados.</p>
+<div class="inline-table"><table class="table table-sm">
+<colgroup>
+<col width="11%">
+<col width="11%">
+<col width="15%">
+<col width="34%">
+<col width="26%">
+</colgroup>
+<thead><tr class="header">
+<th>Número</th>
+<th>Evento</th>
+<th>Secuencia</th>
+<th>Probabilidad del Evento</th>
+<th>
+<span class="math inline">\(X\)</span> (N° Éxitos)</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td><span class="math inline">\(\omega_1\)</span></td>
+<td>E E E E</td>
+<td><span class="math inline">\(p^4\)</span></td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td><span class="math inline">\(\omega_2\)</span></td>
+<td>E E E F</td>
+<td><span class="math inline">\(p^3(1-p)\)</span></td>
+<td>3</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td><span class="math inline">\(\omega_3\)</span></td>
+<td>E E F E</td>
+<td><span class="math inline">\(p^3(1-p)\)</span></td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td><span class="math inline">\(\omega_4\)</span></td>
+<td>E F E E</td>
+<td><span class="math inline">\(p^3(1-p)\)</span></td>
+<td>3</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td><span class="math inline">\(\omega_4\)</span></td>
+<td>F E E E</td>
+<td><span class="math inline">\(p^3(1-p)\)</span></td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td><span class="math inline">\(\omega_5\)</span></td>
+<td>E E F F</td>
+<td><span class="math inline">\(p^2(1-p)^2\)</span></td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td><span class="math inline">\(\omega_6\)</span></td>
+<td>E F E F</td>
+<td><span class="math inline">\(p^2(1-p)^2\)</span></td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td><span class="math inline">\(\omega_7\)</span></td>
+<td>E F F E</td>
+<td><span class="math inline">\(p^2(1-p)^2\)</span></td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td>9</td>
+<td><span class="math inline">\(\omega_8\)</span></td>
+<td>F E E F</td>
+<td><span class="math inline">\(p^2(1-p)^2\)</span></td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td>10</td>
+<td><span class="math inline">\(\omega_9\)</span></td>
+<td>F E F E</td>
+<td><span class="math inline">\(p^2(1-p)^2\)</span></td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td>11</td>
+<td><span class="math inline">\(\omega_{10}\)</span></td>
+<td>F F E E</td>
+<td><span class="math inline">\(p^2(1-p)^2\)</span></td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td>12</td>
+<td><span class="math inline">\(\omega_{11}\)</span></td>
+<td>E F F F</td>
+<td><span class="math inline">\(p(1-p)^3\)</span></td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>13</td>
+<td><span class="math inline">\(\omega_{12}\)</span></td>
+<td>F E F F</td>
+<td><span class="math inline">\(p(1-p)^3\)</span></td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>14</td>
+<td><span class="math inline">\(\omega_{13}\)</span></td>
+<td>F F E F</td>
+<td><span class="math inline">\(p(1-p)^3\)</span></td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>15</td>
+<td><span class="math inline">\(\omega_{14}\)</span></td>
+<td>F F F E</td>
+<td><span class="math inline">\(p(1-p)^3\)</span></td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>16</td>
+<td><span class="math inline">\(\omega_{15}\)</span></td>
+<td>F F F F</td>
+<td><span class="math inline">\((1-p)^4\)</span></td>
+<td>0</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Note</strong>: eventos diferentes tienen la <strong>misma probabilidad</strong> si contienen el mismo número de éxitos y fracasos.</p>
+</div>
+<div id="agrupando-los-eventos-por-el-número-de-éxitos-1" class="section level3" number="3.2.4">
+<h3>
+<span class="header-section-number">3.2.4</span> Agrupando los eventos por el número de Éxitos<a class="anchor" aria-label="anchor" href="#agrupando-los-eventos-por-el-n%C3%BAmero-de-%C3%A9xitos-1"><i class="fas fa-link"></i></a>
+</h3>
+<p>Ahora agrupamos los eventos según el valor de <span class="math inline">\(X\)</span>:</p>
+<div class="inline-table"><table class="table table-sm">
+<colgroup>
+<col width="21%">
+<col width="24%">
+<col width="26%">
+<col width="27%">
+</colgroup>
+<thead><tr class="header">
+<th>
+<span class="math inline">\(x\)</span> (N° Éxitos)</th>
+<th>Eventos Favorables</th>
+<th>Cantidad de Eventos</th>
+<th>Probabilidad <span class="math inline">\(P(X=x)\)</span>
+</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td>FFFF</td>
+<td>1</td>
+<td><span class="math inline">\((1-p)^4\)</span></td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>EFFF, FEFF, FFEF, FFFE</td>
+<td>4</td>
+<td><span class="math inline">\(4p(1-p)^3\)</span></td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td>EEFF, EFEF, EFFE, FEEF, FEFE, FFEE</td>
+<td>6</td>
+<td><span class="math inline">\(6p^2(1-p)^2\)</span></td>
+</tr>
+<tr class="even">
+<td>3</td>
+<td>EEEF, EEFE, EFEE, FEEE</td>
+<td>4</td>
+<td><span class="math inline">\(4p^3(1-p)\)</span></td>
+</tr>
+<tr class="odd">
+<td>4</td>
+<td>EEEE</td>
+<td>1</td>
+<td><span class="math inline">\(p^4\)</span></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>¿Es una función de Masa de probabilidad?</strong> La suma de probabilidades debe ser 1:
+<span class="math display">\[\sum_{x=0}^{4} P(X=x) = (1-p)^4 + 4p(1-p)^3 + 6p^2(1-p)^2 + 4p^3(1-p) + p^4 = 1\]</span></p>
+<hr>
+<p>En nuestro ejemplo con <span class="math inline">\(n=4\)</span>, el <span class="math inline">\(\text{Soporte}(X) = \{0, 1, 2, 3, 4\}\)</span></p>
+</div>
+<div id="parámetros-del-modelo-binomial-1" class="section level3" number="3.2.5">
+<h3>
+<span class="header-section-number">3.2.5</span> Parámetros del modelo Binomial<a class="anchor" aria-label="anchor" href="#par%C3%A1metros-del-modelo-binomial-1"><i class="fas fa-link"></i></a>
+</h3>
+<ul>
+<li><p><strong>Media (Valor Esperado)</strong>: <span class="math inline">\(E[X] = np\)</span></p></li>
+<li><p><strong>Varianza</strong>: <span class="math inline">\(Var(X) = np(1-p)\)</span></p></li>
+<li><p><strong>Desviación Estándar</strong>: <span class="math inline">\(\sigma = \sqrt{np(1-p)}\)</span></p></li>
+</ul>
+<hr>
+</div>
+<div id="ejemplo-3" class="section level3" number="3.2.6">
+<h3>
+<span class="header-section-number">3.2.6</span> Ejemplo<a class="anchor" aria-label="anchor" href="#ejemplo-3"><i class="fas fa-link"></i></a>
+</h3>
+<p>Un ingeniero agrónomo sabe que el <strong>70%</strong> de las semillas de maíz de cierto lote germinan correctamente. Selecciona <strong>4 semillas</strong> al azar. ¿Cuál es la probabilidad de que exactamente <strong>3 germinen</strong>?</p>
+<div id="pasos-1" class="section level4" number="3.2.6.1">
+<h4>
+<span class="header-section-number">3.2.6.1</span> Pasos<a class="anchor" aria-label="anchor" href="#pasos-1"><i class="fas fa-link"></i></a>
+</h4>
+<p><strong>Paso 1: Identificar parámetros</strong></p>
+<ul>
+<li><p><span class="math inline">\(n = 4\)</span> (semillas evaluadas)</p></li>
+<li><p><span class="math inline">\(p = 0.70\)</span> (probabilidad de germinación)</p></li>
+<li><p><span class="math inline">\(1-p = 0.30\)</span> (probabilidad de no germinar)</p></li>
+</ul>
+<p><strong>Paso 2: Calcular el coeficiente binomial</strong></p>
+<p><span class="math display">\[\binom{4}{3} = \frac{4!}{3!(4-3)!} = \frac{4!}{3!1!} = \frac{24}{6 \cdot 1} = 4\]</span></p>
+<p><strong>Paso 3: Estimación de probabilidades</strong>
+<span class="math display">\[P(X = 3) = \binom{4}{3}(0.70)^3(0.30)^{4-3}\]</span>
+<span class="math display">\[P(X = 3) = 4 \cdot (0.70)^3 \cdot (0.30)^1\]</span>
+<span class="math display">\[P(X = 3) = 4 \cdot 0.343 \cdot 0.30\]</span>
+<span class="math display">\[P(X = 3) = 4 \cdot 0.1029\]</span>
+<span class="math display">\[P(X = 3) = 0.4116\]</span></p>
+<p><strong>Paso 4: Interpretación</strong>
+Existe un <strong>41.16%</strong> de probabilidad de que exactamente 3 de las 4 semillas germinen.</p>
+</div>
+</div>
+<div id="tabla-de-probabilidades-1" class="section level3" number="3.2.7">
+<h3>
+<span class="header-section-number">3.2.7</span> Tabla de Probabilidades<a class="anchor" aria-label="anchor" href="#tabla-de-probabilidades-1"><i class="fas fa-link"></i></a>
+</h3>
+<div class="inline-table"><table class="table table-sm">
+<thead><tr class="header">
+<th><span class="math inline">\(x\)</span></th>
+<th>Cálculo</th>
+<th><span class="math inline">\(P(X=x)\)</span></th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td><span class="math inline">\(\binom{4}{0}(0.7)^0(0.3)^4 = 1 \cdot 1 \cdot 0.0081\)</span></td>
+<td>0.0081</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td><span class="math inline">\(\binom{4}{1}(0.7)^1(0.3)^3 = 4 \cdot 0.7 \cdot 0.027\)</span></td>
+<td>0.0756</td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td><span class="math inline">\(\binom{4}{2}(0.7)^2(0.3)^2 = 6 \cdot 0.49 \cdot 0.09\)</span></td>
+<td>0.2646</td>
+</tr>
+<tr class="even">
+<td>3</td>
+<td><span class="math inline">\(\binom{4}{3}(0.7)^3(0.3)^1 = 4 \cdot 0.343 \cdot 0.3\)</span></td>
+<td>0.4116</td>
+</tr>
+<tr class="odd">
+<td>4</td>
+<td><span class="math inline">\(\binom{4}{4}(0.7)^4(0.3)^0 = 1 \cdot 0.2401 \cdot 1\)</span></td>
+<td>0.2401</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Verificación</strong>: <span class="math inline">\(0.0081 + 0.0756 + 0.2646 + 0.4116 + 0.2401 = 1.0000\)</span> ✓</p>
+<hr>
+</div>
+<div id="aplicaciones-1" class="section level3" number="3.2.8">
+<h3>
+<span class="header-section-number">3.2.8</span> Aplicaciones<a class="anchor" aria-label="anchor" href="#aplicaciones-1"><i class="fas fa-link"></i></a>
+</h3>
+<div id="control-de-calidad-en-semillas-1" class="section level4" number="3.2.8.1">
+<h4>
+<span class="header-section-number">3.2.8.1</span> Control de Calidad en Semillas<a class="anchor" aria-label="anchor" href="#control-de-calidad-en-semillas-1"><i class="fas fa-link"></i></a>
+</h4>
+<p><strong>Problema</strong>: Un productor de trigo necesita que al menos el 85% de sus semillas germinen para considerar el lote como “comercializable”. Si toma una muestra de 10 semillas y la tasa real de germinación es del 90%, ¿cuál es la probabilidad de que el lote sea rechazado injustamente (es decir, que 8 o menos germinen)?</p>
+<p><strong>Solución</strong>:</p>
+<p><strong>Paso 1: Identificar parámetros del modelo</strong></p>
+<ul>
+<li><p><span class="math inline">\(n = 10\)</span></p></li>
+<li><p><span class="math inline">\(p = 0.90\)</span></p></li>
+<li><p>Estimamos <span class="math inline">\(P(X \leq 8)\)</span> donde <span class="math inline">\(X\)</span> es el número de semillas que germinan al poner a germinar <span class="math inline">\(n=4\)</span>.</p></li>
+</ul>
+<p><strong>Paso 2: Re escribimos la pregunta en formato estadístico</strong>
+<span class="math display">\[P(X \leq 8) = P(X=0) + P(X=1) + \cdots + P(X=8)\]</span></p>
+<p>O más fácilmente:
+<span class="math display">\[P(X \leq 8) = 1 - P(X \geq 9) = 1 - [P(X=9) + P(X=10)]\]</span></p>
+<p><strong>Paso 3: Calcular</strong>
+<span class="math display">\[P(X=9) = \binom{10}{9}(0.90)^9(0.10)^1 = 10 \cdot 0.3874 \cdot 0.10 = 0.3874\]</span>
+<span class="math display">\[P(X=10) = \binom{10}{10}(0.90)^{10}(0.10)^0 = 1 \cdot 0.3487 \cdot 1 = 0.3487\]</span></p>
+<p><strong>Paso 4: Resultado</strong>
+<span class="math display">\[P(X \leq 8) = 1 - (0.3874 + 0.3487) = 1 - 0.7361 = 0.2639\]</span></p>
+<p><strong>Con esto</strong>: Existe un <strong>26.39%</strong> de probabilidad de rechazar injustamente un buen lote. Esto sugiere que el criterio de “al menos 85%” con muestra de 10 puede ser demasiado estricto.</p>
+<hr>
+</div>
+<div id="eficacia-de-un-fungicida-1" class="section level4" number="3.2.8.2">
+<h4>
+<span class="header-section-number">3.2.8.2</span> Eficacia de un Fungicida<a class="anchor" aria-label="anchor" href="#eficacia-de-un-fungicida-1"><i class="fas fa-link"></i></a>
+</h4>
+<p><strong>Problema</strong>: Un nuevo fungicida se aplica a 15 plantas infectadas. Se sabe que sin tratamiento, la probabilidad de recuperación espontánea es del 20%. Si el fungicida no tuviera efecto, ¿cuál sería la probabilidad de observar 10 o más recuperaciones por azar?</p>
+<p><strong>Solución</strong>:</p>
+<p><strong>Paso 1: Hipótesis nula</strong>
+Asumimos que el fungicida NO tiene efecto: <span class="math inline">\(p = 0.20\)</span></p>
+<p><strong>Paso 2: Parámetros</strong></p>
+<ul>
+<li><p><span class="math inline">\(n = 15\)</span></p></li>
+<li><p><span class="math inline">\(p = 0.20\)</span></p></li>
+<li><p>Buscamos <span class="math inline">\(P(X \geq 10)\)</span></p></li>
+</ul>
+<p><strong>Paso 3: Calcular</strong>
+<span class="math display">\[P(X \geq 10) = P(X=10) + P(X=11) + P(X=12) + P(X=13) + P(X=14) + P(X=15)\]</span></p>
+<p>Calculamos cada término:
+<span class="math display">\[P(X=10) = \binom{15}{10}(0.20)^{10}(0.80)^5 = 3003 \cdot 1.024 \times 10^{-7} \cdot 0.3277 \approx 0.0001\]</span></p>
+<p>Los términos siguientes son aún más pequeños (cercanos a cero).</p>
+<p><strong>Paso 4: Resultado</strong>
+<span class="math display">\[P(X \geq 10) \approx 0.0001\]</span></p>
+<p><strong>Interpretación</strong>: La probabilidad de observar 10 o más recuperaciones por puro azar es de <strong>0.01%</strong>. Esto es extremadamente bajo, lo que proporciona <strong>evidencia estadística fuerte</strong> de que el fungicida sí tiene efecto.</p>
+<hr>
+</div>
+<div id="planificación-de-siembra-1" class="section level4" number="3.2.8.3">
+<h4>
+<span class="header-section-number">3.2.8.3</span> Planificación de Siembra<a class="anchor" aria-label="anchor" href="#planificaci%C3%B3n-de-siembra-1"><i class="fas fa-link"></i></a>
+</h4>
+<p><strong>Problema</strong>: Un agricultor necesita 100 plantas de tomate para cumplir un pedido. Sabe que la tasa de supervivencia de las plántulas es del 80%. ¿Cuántas plántulas debe sembrar para tener al menos un 95% de probabilidad de obtener 100 o más plantas supervivientes?</p>
+<p><strong>Solución</strong>:</p>
+<p><strong>Paso 1: Enfoque</strong>
+Este es un problema inverso. Necesitamos encontrar <span class="math inline">\(n\)</span> tal que:
+<span class="math display">\[P(X \geq 100) \geq 0.95\]</span>
+donde <span class="math inline">\(X \sim B(n, 0.80)\)</span></p>
+<p><strong>Paso 2: Aproximación inicial</strong>
+Por el valor esperado: <span class="math inline">\(E[X] = np = 0.80n\)</span>
+Si queremos 100 plantas: <span class="math inline">\(0.80n = 100 \Rightarrow n = 125\)</span></p>
+<p>Pero esto solo nos da el promedio. Necesitamos un margen de seguridad.</p>
+<p><strong>Paso 3: Prueba con <span class="math inline">\(n = 130\)</span></strong>
+Calculamos <span class="math inline">\(P(X \geq 100)\)</span> con <span class="math inline">\(n=130, p=0.80\)</span></p>
+<p>Usando aproximación normal (justificada porque <span class="math inline">\(np = 104 &gt; 5\)</span> y <span class="math inline">\(n(1-p) = 26 &gt; 5\)</span>):
+- Media: <span class="math inline">\(\mu = np = 130 \cdot 0.80 = 104\)</span>
+- Desviación: <span class="math inline">\(\sigma = \sqrt{np(1-p)} = \sqrt{130 \cdot 0.80 \cdot 0.20} = \sqrt{20.8} \approx 4.56\)</span></p>
+<p>Estandarizamos con corrección por continuidad:
+<span class="math display">\[Z = \frac{99.5 - 104}{4.56} = \frac{-4.5}{4.56} \approx -0.99\]</span></p>
+<p>Buscamos en tabla Z:
+<span class="math display">\[P(Z \geq -0.99) = 1 - P(Z &lt; -0.99) = 1 - 0.1611 = 0.8389\]</span></p>
+<p>Solo 83.89%, insuficiente.</p>
+<p><strong>Paso 4: Prueba con <span class="math inline">\(n = 135\)</span></strong></p>
+<ul>
+<li><p><span class="math inline">\(\mu = 135 \cdot 0.80 = 108\)</span></p></li>
+<li><p><span class="math inline">\(\sigma = \sqrt{135 \cdot 0.80 \cdot 0.20} = \sqrt{21.6} \approx 4.65\)</span></p></li>
+</ul>
+<p><span class="math display">\[Z = \frac{99.5 - 108}{4.65} = \frac{-8.5}{4.65} \approx -1.83\]</span></p>
+<p><span class="math display">\[P(Z \geq -1.83) = 1 - 0.0336 = 0.9664\]</span></p>
+<p><strong>Resultado</strong>: Con <span class="math inline">\(n = 135\)</span> plántulas, tenemos un <strong>96.64%</strong> de probabilidad de obtener al menos 100 plantas.</p>
+<p><strong>Recomendación práctica</strong>: El agricultor debe sembrar <strong>135 plántulas</strong> para cumplir su pedido con 95% de confianza.</p>
+<hr>
+</div>
+</div>
+<div id="consideraciones-finales-1" class="section level3" number="3.2.9">
+<h3>
+<span class="header-section-number">3.2.9</span> Consideraciones Finales<a class="anchor" aria-label="anchor" href="#consideraciones-finales-1"><i class="fas fa-link"></i></a>
+</h3>
+<div id="errores-comunes-a-evitar-1" class="section level4" number="3.2.9.1">
+<h4>
+<span class="header-section-number">3.2.9.1</span> Errores Comunes a Evitar<a class="anchor" aria-label="anchor" href="#errores-comunes-a-evitar-1"><i class="fas fa-link"></i></a>
+</h4>
+<ol style="list-style-type: decimal">
+<li>
+<strong>Confundir <span class="math inline">\(p\)</span> con <span class="math inline">\(1-p\)</span></strong>: Siempre verifica qué es “éxito” en tu contexto.</li>
+<li>
+<strong>Olvidar el coeficiente binomial</strong>: No es solo <span class="math inline">\(p^k(1-p)^{n-k}\)</span>, falta multiplicar por <span class="math inline">\(\binom{n}{k}\)</span>.</li>
+<li>
+<strong>Aplicar cuando no hay independencia</strong>: Si los ensayos se influyen entre sí, la binomial no aplica.</li>
+<li>
+<strong>Usar con probabilidad variable</strong>: Si <span class="math inline">\(p\)</span> cambia entre ensayos, necesitas otro modelo.</li>
+</ol>
+</div>
+</div>
+<div id="cuándo-usar-la-distribución-binomial-1" class="section level3" number="3.2.10">
+<h3>
+<span class="header-section-number">3.2.10</span> Cuándo Usar la Distribución Binomial<a class="anchor" aria-label="anchor" href="#cu%C3%A1ndo-usar-la-distribuci%C3%B3n-binomial-1"><i class="fas fa-link"></i></a>
+</h3>
+<p>✓ Número fijo de ensayos<br>
+✓ Dos resultados posibles para cada determinación
+✓ Probabilidad de éxito constante<br>
+✓ Ensayos independientes</p>
+</div>
+<div id="herramientas-computacionales-1" class="section level3" number="3.2.11">
+<h3>
+<span class="header-section-number">3.2.11</span> Herramientas Computacionales<a class="anchor" aria-label="anchor" href="#herramientas-computacionales-1"><i class="fas fa-link"></i></a>
+</h3>
+<p>Para cálculos con <span class="math inline">\(n\)</span> grande, usa:</p>
+<ul>
+<li><p><strong>R</strong>: <code>dbinom(k, n, p)</code> para probabilidades puntuales</p></li>
+<li><p><strong>Python</strong>: <code>scipy.stats.binom.pmf(k, n, p)</code></p></li>
+<li><p><strong>Excel</strong>: <code>DISTR.BINOM(k, n, p, FALSO)</code></p></li>
+</ul>
+<hr>
+</div>
+</div>
+<div id="referencias-bibliográficas-1" class="section level2" number="3.3">
+<h2>
+<span class="header-section-number">3.3</span> Referencias Bibliográficas<a class="anchor" aria-label="anchor" href="#referencias-bibliogr%C3%A1ficas-1"><i class="fas fa-link"></i></a>
+</h2>
+<ol style="list-style-type: decimal">
+<li><p>Walpole, R. E., Myers, R. H., Myers, S. L., &amp; Ye, K. (2012). <em>Probability &amp; Statistics for Engineers &amp; Scientists</em> (9th ed.). Pearson.</p></li>
+<li><p>Montgomery, D. C., &amp; Runger, G. C. (2018). <em>Applied Statistics and Probability for Engineers</em> (7th ed.). Wiley.</p></li>
+<li><p>Devore, J. L. (2016). <em>Probability and Statistics for Engineering and the Sciences</em> (9th ed.). Cengage Learning.</p></li>
+<li><p>FAO. (2020). <em>Statistical Standards for Agricultural Surveys</em>. Food and Agriculture Organization of the United Nations.</p></li>
+</ol>
+<hr>
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="empty"></div>
+<div class="empty"></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <div id="book-on-this-page"></div>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+          
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Modelos de Probabilidad para v.a. Discretas</strong>" was written by J.A. Rueda-Restrepo. It was last built on 2026-05-10.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

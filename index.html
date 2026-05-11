@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Capitulo 1 Modelos para v.a. Discretas | Modelos de Probabilidad para v.a. Discretas</title>
+<meta name="author" content="J.A. Rueda-Restrepo">
+<meta name="description" content="&lt;p&gt;Solo con unas pocas distribuciones de probabiliadd es posible modelar muchos proceso en las ciencias agrarias.
+A excepción del modelo Hipergeométrico, los modelos se basen en ensayos beroulli independientes.&lt;/p&gt;">
+<meta name="generator" content="bookdown 0.46 with bs4_book()">
+<meta property="og:title" content="Capitulo 1 Modelos para v.a. Discretas | Modelos de Probabilidad para v.a. Discretas">
+<meta property="og:type" content="book">
+<meta property="og:description" content="&lt;p&gt;Solo con unas pocas distribuciones de probabiliadd es posible modelar muchos proceso en las ciencias agrarias.
+A excepción del modelo Hipergeométrico, los modelos se basen en ensayos beroulli independientes.&lt;/p&gt;">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Capitulo 1 Modelos para v.a. Discretas | Modelos de Probabilidad para v.a. Discretas">
+<meta name="twitter:description" content="&lt;p&gt;Solo con unas pocas distribuciones de probabiliadd es posible modelar muchos proceso en las ciencias agrarias.
+A excepción del modelo Hipergeométrico, los modelos se basen en ensayos beroulli independientes.&lt;/p&gt;">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.10.0/transition.js"></script><script src="libs/bs3compat-0.10.0/tabs.js"></script><script src="libs/bs3compat-0.10.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Modelos de Probabilidad para v.a. Discretas</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="active" href="index.html"><span class="header-section-number">1</span> Modelos para v.a. Discretas</a></li>
+<li><a class="" href="binomial.html"><span class="header-section-number">2</span> Binomial</a></li>
+<li><a class="" href="ejemplos.html"><span class="header-section-number">3</span> Ejemplos</a></li>
+<li><a class="" href="referencias.html"><span class="header-section-number">4</span> Referencias</a></li>
+<li><a class="" href="funci%C3%B3n-acumulada-fap.html"><span class="header-section-number">5</span> Función Acumulada (FAP)</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/jarueda">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><!--bookdown:title:end--><!--bookdown:title:start--><div id="modelos-para-v.a.-discretas" class="section level1" number="1">
+<h1>
+<span class="header-section-number">Capitulo 1</span> Modelos para v.a. Discretas<a class="anchor" aria-label="anchor" href="#modelos-para-v.a.-discretas"><i class="fas fa-link"></i></a>
+</h1>
+<div id="bernoulli" class="section level2" number="1.1">
+<h2>
+<span class="header-section-number">1.1</span> Bernoulli<a class="anchor" aria-label="anchor" href="#bernoulli"><i class="fas fa-link"></i></a>
+</h2>
+<p>El ensayo <em>Bernoulli</em> constituye el bloque fundamental para la definición de los modelos de probabilidad más importantes que se expondrán aquí.</p>
+<p>Partiremos de la definición del <em>ensayo Bernoulli</em> para seguir con la definición de la <em>v.a. Bernoulli</em> y luego la definición del <em>modelo Bernoulli</em>.</p>
+</div>
+<div id="ensayo-bernoulli" class="section level2" number="1.2">
+<h2>
+<span class="header-section-number">1.2</span> Ensayo Bernoulli<a class="anchor" aria-label="anchor" href="#ensayo-bernoulli"><i class="fas fa-link"></i></a>
+</h2>
+<p>Un experimento Bernoulli ocurre cuando se realizan determinaciones sobre una variable que solo se puede presentar de dos formas. Por esto, el espacio muestral asociado a tal experimento solo tiene dos eventos que se denominan, respectivamente, <strong>Éxito y Fracaso</strong>.</p>
+<p><span class="math display">\[\Omega_{Bernoulli} =\{Éxito, \; Fracaso\}\]</span></p>
+<p>De forma general, las probabilidades asociadas a los dos eventos del espacio muestral se definen como: <span class="math inline">\(P(Éxito)=p\)</span> y <span class="math inline">\(P(Fracaso)=1-p=q\)</span></p>
+</div>
+<div id="función-de-probabilidad-bernoulli" class="section level2" number="1.3">
+<h2>
+<span class="header-section-number">1.3</span> Función de probabilidad Bernoulli<a class="anchor" aria-label="anchor" href="#funci%C3%B3n-de-probabilidad-bernoulli"><i class="fas fa-link"></i></a>
+</h2>
+<p>Si se realiza un ensayo Bernoulli y se define la variable aleatoria, X:</p>
+<p>Sea <span class="math inline">\(X\)</span> la v.a. que cuenta el número de Éxitos cuando se realiza un ensayo Bernoulli, entonces podemos describir la probabilidad de la v.a. como:</p>
+<div class="center">
+<div class="inline-table"><table class="table table-sm">
+<thead><tr class="header">
+<th align="center">X</th>
+<th align="center">0</th>
+<th align="center">1</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="center">P(X=x)</td>
+<td align="center"><span class="math inline">\(q=1-p\)</span></td>
+<td align="center"><span class="math inline">\(p\)</span></td>
+</tr>
+<tr class="even">
+<td align="center">:-:</td>
+<td align="center">:-:</td>
+<td align="center">:-:</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p>También:</p>
+<p><span class="math display">\[P(X=x)=p^xq^{1-x} \;\;\; \text{para} \;x=\{0, 1\}\]</span>
+Observe que:</p>
+<p><span class="math display">\[E(x)=p\]</span> <span class="math display">\[Var(x)=p(1-p)=p\times q\]</span></p>
+<div class="inline-figure"><img src="Ddiscret.png" style="width:90.0%"></div>
+
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="empty"></div>
+<div class="next"><a href="binomial.html"><span class="header-section-number">2</span> Binomial</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#modelos-para-v.a.-discretas"><span class="header-section-number">1</span> Modelos para v.a. Discretas</a></li>
+<li><a class="nav-link" href="#bernoulli"><span class="header-section-number">1.1</span> Bernoulli</a></li>
+<li><a class="nav-link" href="#ensayo-bernoulli"><span class="header-section-number">1.2</span> Ensayo Bernoulli</a></li>
+<li><a class="nav-link" href="#funci%C3%B3n-de-probabilidad-bernoulli"><span class="header-section-number">1.3</span> Función de probabilidad Bernoulli</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/jarueda/blob/master/index.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/jarueda/edit/master/index.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Modelos de Probabilidad para v.a. Discretas</strong>" was written by J.A. Rueda-Restrepo. It was last built on 2026-05-10.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>
