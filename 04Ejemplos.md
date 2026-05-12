@@ -23,7 +23,7 @@ Con 4 ensayos, tenemos $2^4 = 16$ posibles resultados.
 | 7 | $\omega_7$ | E F E F | $p^2(1-p)^2$ | 2 |
 | 8 | $\omega_8$ | E F F E | $p^2(1-p)^2$ | 2 |
 | 9 | $\omega_9$ | F E E F | $p^2(1-p)^2$ | 2 |
-| 10 | $\omega_10$ | F E F E | $p^2(1-p)^2$ | 2 |
+| 10 | $\omega_{10}$ | F E F E | $p^2(1-p)^2$ | 2 |
 | 11 | $\omega_{11}$ | F F E E | $p^2(1-p)^2$ | 2 |
 | 12 | $\omega_{12}$ | E F F F | $p(1-p)^3$ | 1 |
 | 13 | $\omega_{13}$ | F E F F | $p(1-p)^3$ | 1 |
@@ -170,6 +170,12 @@ Los términos siguientes son aún más pequeños (cercanos a cero).
 $$P(X \geq 10) \approx 0.0001$$
 
 **Interpretación**: La probabilidad de observar 10 o más recuperaciones por puro azar es de **0.01%**. Esto es extremadamente bajo, lo que proporciona **evidencia estadística fuerte** de que el fungicida sí tiene efecto.
+
+---
+
+Si $x \sim Bin(x, n, p)$, entonces su distribución es simétrica respecto a la distribución de la v.a. $ Y \sim Bin(x; n; q) $ Y, con esto, 
+$$P(X=x)=P(Y=n-x)$$
+**Esto confirma que al definir la v.a. no es importante la definición de un evento como éxito o fracaso**
 
 ---
 

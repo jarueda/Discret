@@ -7,7 +7,7 @@
 <title>Capitulo 5 Función Acumulada (FAP) | Modelos de Probabilidad para v.a. Discretas</title>
 <meta name="author" content="J.A. Rueda-Restrepo">
 <meta name="description" content="5.1 Definición General La Función Acumulada de Probabilidad (o Función de Distribución Acumulada - FDA) asocia a cada valor real \(x\) la probabilidad de que una variable aleatoria \(X\) tome un...">
-<meta name="generator" content="bookdown 0.46 with bs4_book()">
+<meta name="generator" content="bookdown 0.34 with bs4_book()">
 <meta property="og:title" content="Capitulo 5 Función Acumulada (FAP) | Modelos de Probabilidad para v.a. Discretas">
 <meta property="og:type" content="book">
 <meta property="og:description" content="5.1 Definición General La Función Acumulada de Probabilidad (o Función de Distribución Acumulada - FDA) asocia a cada valor real \(x\) la probabilidad de que una variable aleatoria \(X\) tome un...">
@@ -16,7 +16,7 @@
 <meta name="twitter:description" content="5.1 Definición General La Función Acumulada de Probabilidad (o Función de Distribución Acumulada - FDA) asocia a cada valor real \(x\) la probabilidad de que una variable aleatoria \(X\) tome un...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.10.0/transition.js"></script><script src="libs/bs3compat-0.10.0/tabs.js"></script><script src="libs/bs3compat-0.10.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.5.0/transition.js"></script><script src="libs/bs3compat-0.5.0/tabs.js"></script><script src="libs/bs3compat-0.5.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
     
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
@@ -49,6 +49,7 @@
 <li><a class="" href="referencias.html"><span class="header-section-number">4</span> Referencias</a></li>
 <li><a class="active" href="funci%C3%B3n-acumulada-fap.html"><span class="header-section-number">5</span> Función Acumulada (FAP)</a></li>
 <li><a class="" href="binomial-negativa.html"><span class="header-section-number">6</span> Binomial Negativa</a></li>
+<li><a class="" href="distribuci%C3%B3n-de-poisson.html"><span class="header-section-number">7</span> Distribución de Poisson</a></li>
 </ul>
 
         <div class="book-extra">
@@ -102,7 +103,22 @@
 <blockquote>
 <p><strong>Nota:</strong> El círculo relleno ● indica que el valor en el punto está incluido (por la definición <span class="math inline">\(P(X \le x)\)</span>), y el círculo abierto ○ indica que no está incluido en el escalón siguiente.</p>
 </blockquote>
-<hr>
+<div class="inline-table"><table style="width:6%;" class="table table-sm">
+<colgroup><col width="5%"></colgroup>
+<tbody>
+<tr>
+<td>### Propiedades de F(x)</td>
+</tr>
+<tr>
+<td>- <span class="math inline">\(F(x) = P(X \le x)\)</span>
+- <span class="math inline">\(P(X &gt; x)=1-F(x)\)</span>
+- <span class="math inline">\(P(X &lt; x) = F(x) -f(x)\)</span>
+- <span class="math inline">\(P(a &lt; x \le b)=F(b)-F(a)\)</span>
+- <span class="math inline">\(P(a &lt; x &lt; b)=F(b)-F(a)-f(b)\)</span>
+</td>
+</tr>
+</tbody>
+</table></div>
 </div>
 </div>
 <div id="variable-aleatoria-continua" class="section level2" number="5.3">
@@ -150,45 +166,45 @@
 <col width="34%">
 <col width="36%">
 </colgroup>
-<thead><tr class="header">
+<thead><tr>
 <th>Propiedad</th>
 <th>Descripción</th>
 <th>Implicación</th>
 </tr></thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><strong>1. Acotación</strong></td>
 <td>
 <span class="math inline">\(0 \le F(x) \le 1\)</span> para todo <span class="math inline">\(x \in \mathbb{R}\)</span>
 </td>
 <td>Es una probabilidad acumulada.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><strong>2. Monotonía</strong></td>
 <td>Si <span class="math inline">\(a &lt; b\)</span>, entonces <span class="math inline">\(F(a) \le F(b)\)</span>
 </td>
 <td>No puede decrecer; refleja acumulación.</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><strong>3. Límites</strong></td>
 <td>
 <span class="math inline">\(\lim_{x \to -\infty} F(x) = 0\)</span> <br><span class="math inline">\(\lim_{x \to +\infty} F(x) = 1\)</span>
 </td>
 <td>A la izquierda del todo es 0; a la derecha del todo es 1.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><strong>4. Continuidad por la derecha</strong></td>
 <td>
 <span class="math inline">\(F(x) = \lim_{t \to x^+} F(t)\)</span> para todo <span class="math inline">\(x\)</span>
 </td>
 <td>En variables continuas es continua; en discretas tiene saltos pero siempre continua por derecha.</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><strong>5. Probabilidad en intervalo</strong></td>
 <td><span class="math inline">\(P(a &lt; X \le b) = F(b) - F(a)\)</span></td>
 <td>Base para calcular probabilidades de intervalos.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><strong>6. Relación con densidad</strong></td>
 <td>Si existe <span class="math inline">\(f(x)\)</span>, entonces <span class="math inline">\(f(x) = \frac{d}{dx}F(x)\)</span> casi en todas partes.</td>
 <td>Permite pasar de acumulada a densidad.</td>
@@ -207,36 +223,36 @@
 <col width="33%">
 <col width="35%">
 </colgroup>
-<thead><tr class="header">
+<thead><tr>
 <th>Característica</th>
 <th>Variable Discreta</th>
 <th>Variable Continua</th>
 </tr></thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><strong>Forma de la gráfica</strong></td>
 <td>Escalonada (saltos)</td>
 <td>Curva suave y continua</td>
 </tr>
-<tr class="even">
+<tr>
 <td><strong>Puntos de salto</strong></td>
 <td>En cada valor posible <span class="math inline">\(x_i\)</span>
 </td>
 <td>No hay saltos</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>
 <strong>Altura del salto</strong> = <span class="math inline">\(p(x_i)\)</span>
 </td>
 <td>No aplica</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr>
 <td><strong>Derivabilidad</strong></td>
 <td>No derivable en los saltos</td>
 <td>Derivable (casi siempre)</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><strong>Interpretación de <span class="math inline">\(F(x)\)</span></strong></td>
 <td>Suma de probabilidades</td>
 <td>Área bajo la curva de densidad hasta <span class="math inline">\(x\)</span>

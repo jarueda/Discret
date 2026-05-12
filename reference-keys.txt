@@ -49,3 +49,12 @@ probabilidad-puntual
 control-de-plagas
 número-esperado
 varianza
+distribución-de-poisson
+definición-2
+aplicaciones
+relación-práctica-con-la-distribución-binomial
+ejemplos-1
+ejemplo-1-aplicación-directa-en-agronomía
+ejemplo-2-aproximación-poisson-a-binomial-en-ciencias-forestales
+recomendaciones-metodológicas
+referencias-recomendadas-formato-apa

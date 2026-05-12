@@ -32,6 +32,16 @@ La gráfica es una **función escalonada** que:
 > **Nota:** El círculo relleno ● indica que el valor en el punto está incluido (por la definición $P(X \le x)$), y el círculo abierto ○ indica que no está incluido en el escalón siguiente.
 
 ---
+### Propiedades de F(x)
+
+-  $F(x) = P(X \le x)$ 
+-  $P(X > x)=1-F(x)$
+-  $P(X < x) = F(x) -f(x)$
+-  $P(a < x \le b)=F(b)-F(a)$
+-  $P(a < x < b)=F(b)-F(a)-f(b)$
+
+
+---
 
 ## 2. Variable Aleatoria Continua
 
