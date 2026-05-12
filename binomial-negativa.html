@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Capitulo 6 Binomial Negativa | Modelos de Probabilidad para v.a. Discretas</title>
+<meta name="author" content="J.A. Rueda-Restrepo">
+<meta name="description" content="Suponga que se realizan una serie de experimentos aleatorios Bernoulli Independientes hasta que aparece el primer éxito. ¿Cuántos ensayos se necesitan para obtener un número fijo de éxitos? Si se...">
+<meta name="generator" content="bookdown 0.46 with bs4_book()">
+<meta property="og:title" content="Capitulo 6 Binomial Negativa | Modelos de Probabilidad para v.a. Discretas">
+<meta property="og:type" content="book">
+<meta property="og:description" content="Suponga que se realizan una serie de experimentos aleatorios Bernoulli Independientes hasta que aparece el primer éxito. ¿Cuántos ensayos se necesitan para obtener un número fijo de éxitos? Si se...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Capitulo 6 Binomial Negativa | Modelos de Probabilidad para v.a. Discretas">
+<meta name="twitter:description" content="Suponga que se realizan una serie de experimentos aleatorios Bernoulli Independientes hasta que aparece el primer éxito. ¿Cuántos ensayos se necesitan para obtener un número fijo de éxitos? Si se...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.10.0/transition.js"></script><script src="libs/bs3compat-0.10.0/tabs.js"></script><script src="libs/bs3compat-0.10.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Modelos de Probabilidad para v.a. Discretas</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html"><span class="header-section-number">1</span> Modelos para v.a. Discretas</a></li>
+<li><a class="" href="binomial.html"><span class="header-section-number">2</span> Binomial</a></li>
+<li><a class="" href="ejemplos.html"><span class="header-section-number">3</span> Ejemplos</a></li>
+<li><a class="" href="referencias.html"><span class="header-section-number">4</span> Referencias</a></li>
+<li><a class="" href="funci%C3%B3n-acumulada-fap.html"><span class="header-section-number">5</span> Función Acumulada (FAP)</a></li>
+<li><a class="active" href="binomial-negativa.html"><span class="header-section-number">6</span> Binomial Negativa</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/jarueda">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="binomial-negativa" class="section level1" number="6">
+<h1>
+<span class="header-section-number">Capitulo 6</span> Binomial Negativa<a class="anchor" aria-label="anchor" href="#binomial-negativa"><i class="fas fa-link"></i></a>
+</h1>
+<p>Suponga que se realizan una serie de experimentos aleatorios <em>Bernoulli</em> Independientes hasta que aparece el primer éxito.</p>
+<blockquote>
+<p>¿Cuántos ensayos se necesitan para obtener un número fijo de éxitos?</p>
+</blockquote>
+<hr>
+<p>Si se realizan ensayos Bernoulli independientes, uno a una hasta obtener una cantidad fija de éxitos, <span class="math inline">\(r\)</span>.</p>
+<div id="variable-aleatoria" class="section level3" number="6.0.1">
+<h3>
+<span class="header-section-number">6.0.1</span> Variable aleatoria<a class="anchor" aria-label="anchor" href="#variable-aleatoria"><i class="fas fa-link"></i></a>
+</h3>
+<p>Cuando se define la v.a. <span class="math inline">\(X\)</span> como la v.a. que cuenta el número de ensayos Bernoulli independientes que se tienen que realizar para obtener <span class="math inline">\(r\)</span> éxitos.</p>
+<p><span class="math display">\[
+x = \{r, r+1, r+2, \dots\}
+\]</span></p>
+<p>El espacio muestral asociado a este tipo de experimentos aleatorios tiene la forma general: (E: representa el evento “ocurre un éxito”; F: ocurre un fracaso)</p>
+</div>
+<div id="distribución-geomética-o-de-pascal" class="section level2" number="6.1">
+<h2>
+<span class="header-section-number">6.1</span> Distribución Geomética o de Pascal<a class="anchor" aria-label="anchor" href="#distribuci%C3%B3n-geom%C3%A9tica-o-de-pascal"><i class="fas fa-link"></i></a>
+</h2>
+<ul>
+<li>Si <span class="math inline">\(r=1\)</span>
+</li>
+</ul>
+<blockquote>
+<p><em>Si me eres infiel una vez, la culpa es tuya. Si me eres infiel una segunda vez, la culpa es mia</em>.</p>
+</blockquote>
+<p><span class="math display">\[\Omega_{Binomial ^{(-)}}=\{E, FE, FFE,..., \underbrace{FFF...FE}_{(x-1) fracasos, \;un \;éxito}\} \; \text{cuando} \; r=1\]</span>
+A la variable aleatoria X se le puede describir la función de Masa de probabilidad de la siguiente forma:</p>
+<div class="inline-table"><table class="table table-sm">
+<thead><tr class="header">
+<th><span class="math inline">\(X\)</span></th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>…</th>
+</tr></thead>
+<tbody><tr class="odd">
+<td><span class="math inline">\(P(x)\)</span></td>
+<td><span class="math inline">\(p\)</span></td>
+<td><span class="math inline">\(qp\)</span></td>
+<td><span class="math inline">\(qqp\)</span></td>
+<td><span class="math inline">\(qqqp\)</span></td>
+<td>…</td>
+</tr></tbody>
+</table></div>
+<p>Tambien:</p>
+<p><span class="math display">\[P(X=x)=p(1-p)^{x-1}=pq^{x-1} \; \text{para} \; x=\{1, 2, 3,...\}\]</span>
+Parámetros</p>
+<p><span class="math display">\[E(X)= \frac{1}{p}\]</span>
+<span class="math display">\[Var(X)=\sigma^2_x= \frac{(1-p)}{p^2}\]</span>
+—</p>
+<ul>
+<li><span class="math inline">\(r=2\)</span></li>
+</ul>
+<p><span class="math display">\[\Omega_{Binomial ^{(-)}}=\{EE, FEE, EFE,..., \underbrace{FFEF...F}_{(x-2) \; fracasos, \;(2-1) \;éxitos}E\} \; \text{cuando} \; r=2\]</span></p>
+<div id="comparación" class="section level3" number="6.1.1">
+<h3>
+<span class="header-section-number">6.1.1</span> Comparación<a class="anchor" aria-label="anchor" href="#comparaci%C3%B3n"><i class="fas fa-link"></i></a>
+</h3>
+<div class="inline-table"><table class="table table-sm">
+<thead><tr class="header">
+<th>Característica</th>
+<th>Binomial</th>
+<th>Binomial Negativa</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>Fijo</td>
+<td><span class="math inline">\(n\)</span></td>
+<td><span class="math inline">\(r\)</span></td>
+</tr>
+<tr class="even">
+<td>Variable</td>
+<td>éxitos</td>
+<td>ensayos o fracasos</td>
+</tr>
+<tr class="odd">
+<td>Pregunta</td>
+<td>éxitos en <span class="math inline">\(n\)</span>
+</td>
+<td>ensayos para <span class="math inline">\(r\)</span>
+</td>
+</tr>
+<tr class="even">
+<td>Soporte</td>
+<td><span class="math inline">\(0,\dots,n\)</span></td>
+<td>infinito</td>
+</tr>
+</tbody>
+</table></div>
+<hr>
+<hr>
+</div>
+<div id="probabilidad" class="section level3" number="6.1.2">
+<h3>
+<span class="header-section-number">6.1.2</span> Probabilidad<a class="anchor" aria-label="anchor" href="#probabilidad"><i class="fas fa-link"></i></a>
+</h3>
+<p><span class="math display">\[
+P(X=x)=\binom{x-r}{r-1}p^{x-r}q^{r-1}p
+\]</span></p>
+</div>
+</div>
+<div id="modelo-probabilístico" class="section level2" number="6.2">
+<h2>
+<span class="header-section-number">6.2</span> Modelo Probabilístico<a class="anchor" aria-label="anchor" href="#modelo-probabil%C3%ADstico"><i class="fas fa-link"></i></a>
+</h2>
+<div id="función-de-probabilidad" class="section level3" number="6.2.1">
+<h3>
+<span class="header-section-number">6.2.1</span> Función de probabilidad<a class="anchor" aria-label="anchor" href="#funci%C3%B3n-de-probabilidad"><i class="fas fa-link"></i></a>
+</h3>
+<p><span class="math display">\[
+P(X=x)=\binom{x-r}{r-1}p^rq^{r-1} \; \text{para} \; x=\{r, r+1, \dots\}
+\]</span></p>
+<hr>
+<hr>
+</div>
+<div id="media-y-varianza" class="section level3" number="6.2.2">
+<h3>
+<span class="header-section-number">6.2.2</span> Media y varianza<a class="anchor" aria-label="anchor" href="#media-y-varianza"><i class="fas fa-link"></i></a>
+</h3>
+<p><span class="math display">\[
+E[X] = ?
+\]</span></p>
+<p><span class="math display">\[
+Var(X) = ?
+\]</span></p>
+<hr>
+</div>
+</div>
+<div id="ejemplo-1" class="section level2" number="6.3">
+<h2>
+<span class="header-section-number">6.3</span> Ejemplo<a class="anchor" aria-label="anchor" href="#ejemplo-1"><i class="fas fa-link"></i></a>
+</h2>
+<div id="datos" class="section level3" number="6.3.1">
+<h3>
+<span class="header-section-number">6.3.1</span> Datos<a class="anchor" aria-label="anchor" href="#datos"><i class="fas fa-link"></i></a>
+</h3>
+<ul>
+<li>
+<span class="math inline">\(r = 2\)</span><br>
+</li>
+<li><span class="math inline">\(p = 0.40\)</span></li>
+</ul>
+<hr>
+</div>
+<div id="probabilidad-puntual" class="section level3" number="6.3.2">
+<h3>
+<span class="header-section-number">6.3.2</span> Probabilidad puntual<a class="anchor" aria-label="anchor" href="#probabilidad-puntual"><i class="fas fa-link"></i></a>
+</h3>
+<p><span class="math display">\[
+P(se \; tienen  \; que  \; realizar  \; más  \; de  \; 4  \; ensayos) = ?
+\]</span></p>
+<p>Resultado:</p>
+<p><span class="math display">\[
+P(X&gt;4) =P(x=5)+P(x=6)+P(x=7)+ ...= 1-F(4)
+\]</span></p>
+<hr>
+<div id="control-de-plagas" class="section level4" number="6.3.2.1">
+<h4>
+<span class="header-section-number">6.3.2.1</span> Control de plagas<a class="anchor" aria-label="anchor" href="#control-de-plagas"><i class="fas fa-link"></i></a>
+</h4>
+<ul>
+<li>
+<span class="math inline">\(p = 0.30\)</span><br>
+</li>
+<li><span class="math inline">\(r = 10\)</span></li>
+</ul>
+<hr>
+</div>
+<div id="número-esperado" class="section level4" number="6.3.2.2">
+<h4>
+<span class="header-section-number">6.3.2.2</span> Número esperado<a class="anchor" aria-label="anchor" href="#n%C3%BAmero-esperado"><i class="fas fa-link"></i></a>
+</h4>
+<p><span class="math display">\[
+E[X] = ?
+\]</span></p>
+<hr>
+</div>
+<div id="varianza" class="section level4" number="6.3.2.3">
+<h4>
+<span class="header-section-number">6.3.2.3</span> Varianza<a class="anchor" aria-label="anchor" href="#varianza"><i class="fas fa-link"></i></a>
+</h4>
+<p><span class="math display">\[
+\sigma^2 \approx ?
+\]</span></p>
+
+</div>
+</div>
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="funci%C3%B3n-acumulada-fap.html"><span class="header-section-number">5</span> Función Acumulada (FAP)</a></div>
+<div class="empty"></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li>
+<a class="nav-link" href="#binomial-negativa"><span class="header-section-number">6</span> Binomial Negativa</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#variable-aleatoria"><span class="header-section-number">6.0.1</span> Variable aleatoria</a></li></ul>
+</li>
+<li>
+<a class="nav-link" href="#distribuci%C3%B3n-geom%C3%A9tica-o-de-pascal"><span class="header-section-number">6.1</span> Distribución Geomética o de Pascal</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#comparaci%C3%B3n"><span class="header-section-number">6.1.1</span> Comparación</a></li>
+<li><a class="nav-link" href="#probabilidad"><span class="header-section-number">6.1.2</span> Probabilidad</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#modelo-probabil%C3%ADstico"><span class="header-section-number">6.2</span> Modelo Probabilístico</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#funci%C3%B3n-de-probabilidad"><span class="header-section-number">6.2.1</span> Función de probabilidad</a></li>
+<li><a class="nav-link" href="#media-y-varianza"><span class="header-section-number">6.2.2</span> Media y varianza</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#ejemplo-1"><span class="header-section-number">6.3</span> Ejemplo</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#datos"><span class="header-section-number">6.3.1</span> Datos</a></li>
+<li><a class="nav-link" href="#probabilidad-puntual"><span class="header-section-number">6.3.2</span> Probabilidad puntual</a></li>
+</ul>
+</li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/jarueda/blob/master/07BinN.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/jarueda/edit/master/07BinN.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Modelos de Probabilidad para v.a. Discretas</strong>" was written by J.A. Rueda-Restrepo. It was last built on 2026-05-11.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

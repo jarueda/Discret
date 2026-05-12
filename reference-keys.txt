@@ -35,3 +35,17 @@ gráfica-función-continua-y-no-decreciente
 propiedades-de-la-función-acumulada
 comparación-visual-entre-discreta-y-continua
 sintesis
+binomial-negativa
+variable-aleatoria
+distribución-geomética-o-de-pascal
+comparación
+probabilidad
+modelo-probabilístico
+función-de-probabilidad
+media-y-varianza
+ejemplo-1
+datos
+probabilidad-puntual
+control-de-plagas
+número-esperado
+varianza
