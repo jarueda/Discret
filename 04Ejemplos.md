@@ -18,18 +18,18 @@ Con 4 ensayos, tenemos $2^4 = 16$ posibles resultados.
 | 2 | $\omega_2$ | E E E F | $p^3(1-p)$ | 3 |
 | 3 | $\omega_3$ | E E F E | $p^3(1-p)$ | 3 |
 | 4 | $\omega_4$ | E F E E | $p^3(1-p)$ | 3 |
-| 5 | $\omega_4$ | F E E E | $p^3(1-p)$ | 3 |
-| 6 | $\omega_5$ | E E F F | $p^2(1-p)^2$ | 2 |
-| 7 | $\omega_6$ | E F E F | $p^2(1-p)^2$ | 2 |
-| 8 | $\omega_7$ | E F F E | $p^2(1-p)^2$ | 2 |
-| 9 | $\omega_8$ | F E E F | $p^2(1-p)^2$ | 2 |
-| 10 | $\omega_9$ | F E F E | $p^2(1-p)^2$ | 2 |
-| 11 | $\omega_{10}$ | F F E E | $p^2(1-p)^2$ | 2 |
-| 12 | $\omega_{11}$ | E F F F | $p(1-p)^3$ | 1 |
-| 13 | $\omega_{12}$ | F E F F | $p(1-p)^3$ | 1 |
-| 14 | $\omega_{13}$ | F F E F | $p(1-p)^3$ | 1 |
-| 15 | $\omega_{14}$ | F F F E | $p(1-p)^3$ | 1 |
-| 16 | $\omega_{15}$ | F F F F | $(1-p)^4$ | 0 |
+| 5 | $\omega_5$ | F E E E | $p^3(1-p)$ | 3 |
+| 6 | $\omega_6$ | E E F F | $p^2(1-p)^2$ | 2 |
+| 7 | $\omega_7$ | E F E F | $p^2(1-p)^2$ | 2 |
+| 8 | $\omega_8$ | E F F E | $p^2(1-p)^2$ | 2 |
+| 9 | $\omega_9$ | F E E F | $p^2(1-p)^2$ | 2 |
+| 10 | $\omega_10$ | F E F E | $p^2(1-p)^2$ | 2 |
+| 11 | $\omega_{11}$ | F F E E | $p^2(1-p)^2$ | 2 |
+| 12 | $\omega_{12}$ | E F F F | $p(1-p)^3$ | 1 |
+| 13 | $\omega_{13}$ | F E F F | $p(1-p)^3$ | 1 |
+| 14 | $\omega_{14}$ | F F E F | $p(1-p)^3$ | 1 |
+| 15 | $\omega_{15}$ | F F F E | $p(1-p)^3$ | 1 |
+| 16 | $\omega_{16}$ | F F F F | $(1-p)^4$ | 0 |
 
 
 **Note**: eventos diferentes tienen la **misma probabilidad** si contienen el mismo número de éxitos y fracasos.
@@ -40,11 +40,11 @@ Ahora agrupamos los eventos según el valor de $X$:
 
 | $x$ (N° Éxitos) | Eventos Favorables | Cantidad de Eventos | Probabilidad $P(X=x)$ |
 |-----------------|-------------------|---------------------|----------------------|
-| 0 | FFFF | 1 | $(1-p)^4$ |
-| 1 | EFFF, FEFF, FFEF, FFFE | 4 | $4p(1-p)^3$ |
-| 2 | EEFF, EFEF, EFFE, FEEF, FEFE, FFEE | 6 | $6p^2(1-p)^2$ |
-| 3 | EEEF, EEFE, EFEE, FEEE | 4 | $4p^3(1-p)$ |
-| 4 | EEEE | 1 | $p^4$ |
+| 0 | FFFF | 1 | $1 \times p^0 (1-p)^4 $ |
+| 1 | EFFF, FEFF, FFEF, FFFE | 4 | $4\times p^1(1-p)^3$ |
+| 2 | EEFF, EFEF, EFFE, FEEF, FEFE, FFEE | 6 | $6\times p^2(1-p)^2$ |
+| 3 | EEEF, EEFE, EFEE, FEEE | 4 | $4\times p^3(1-p)^1$ |
+| 4 | EEEE | 1 | $1\times p^4(1-p)^0$ |
 
 **¿Es una función de Masa de probabilidad?** La suma de probabilidades debe ser 1:
 $$\sum_{x=0}^{4} P(X=x) = (1-p)^4 + 4p(1-p)^3 + 6p^2(1-p)^2 + 4p^3(1-p) + p^4 = 1$$
@@ -106,6 +106,8 @@ Existe un **41.16%** de probabilidad de que exactamente 3 de las 4 semillas germ
 **Verificación**: $0.0081 + 0.0756 + 0.2646 + 0.4116 + 0.2401 = 1.0000$ ✓
 
 ---
+
+![](Bin-1-4.png){width=90%}
 
 
 ### Control de Calidad en Semillas
@@ -171,6 +173,9 @@ $$P(X \geq 10) \approx 0.0001$$
 
 ---
 
+![](Bin-15.png){width=90%}
+
+
 ### Planificación de Siembra
 
 **Problema**: Un agricultor necesita 100 plantas de tomate para cumplir un pedido. Sabe que la tasa de supervivencia de las plántulas es del 80%. ¿Cuántas plántulas debe sembrar para tener al menos un 95% de probabilidad de obtener 100 o más plantas supervivientes?
@@ -190,6 +195,8 @@ Pero esto solo nos da el promedio. Necesitamos un margen de seguridad.
 
 **Paso 3: Prueba con $n = 130$**
 Calculamos $P(X \geq 100)$ con $n=130, p=0.80$
+
+### Usando Aproximación a la Distribución Normal
 
 Usando aproximación normal (justificada porque $np = 104 > 5$ y $n(1-p) = 26 > 5$):
 - Media: $\mu = np = 130 \cdot 0.80 = 104$
@@ -247,16 +254,6 @@ Para cálculos con $n$ grande, usa:
 - **Excel**: `DISTR.BINOM(k, n, p, FALSO)`
 
 ---
-
-## Referencias Bibliográficas
-
-1. Walpole, R. E., Myers, R. H., Myers, S. L., & Ye, K. (2012). *Probability & Statistics for Engineers & Scientists* (9th ed.). Pearson.
-
-2. Montgomery, D. C., & Runger, G. C. (2018). *Applied Statistics and Probability for Engineers* (7th ed.). Wiley.
-
-3. Devore, J. L. (2016). *Probability and Statistics for Engineering and the Sciences* (9th ed.). Cengage Learning.
-
-4. FAO. (2020). *Statistical Standards for Agricultural Surveys*. Food and Agriculture Organization of the United Nations.
 
 ---
 

@@ -112,24 +112,43 @@ Observe que:</p>
 <div class="inline-figure"><img src="Ddiscret.png" style="width:90.0%"></div>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">tabla_final</span><span class="op">)</span></span>
-<span><span class="co">#&gt; # A tibble: 35 × 12</span></span>
-<span><span class="co">#&gt;    Ensayos Exitos `p=0.05` `p=0.10` `p=0.20` `p=0.30`</span></span>
-<span><span class="co">#&gt;      &lt;dbl&gt;  &lt;int&gt;    &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;</span></span>
-<span><span class="co">#&gt;  1       2      0    0.902    0.810    0.64     0.49 </span></span>
-<span><span class="co">#&gt;  2       2      1    0.998    0.99     0.96     0.91 </span></span>
-<span><span class="co">#&gt;  3       2      2    1        1        1        1    </span></span>
-<span><span class="co">#&gt;  4       3      0    0.857    0.729    0.512    0.343</span></span>
-<span><span class="co">#&gt;  5       3      1    0.993    0.972    0.896    0.784</span></span>
-<span><span class="co">#&gt;  6       3      2    1.000    0.999    0.992    0.973</span></span>
-<span><span class="co">#&gt;  7       3      3    1        1        1        1    </span></span>
-<span><span class="co">#&gt;  8       4      0    0.815    0.656    0.410    0.240</span></span>
-<span><span class="co">#&gt;  9       4      1    0.986    0.948    0.819    0.652</span></span>
-<span><span class="co">#&gt; 10       4      2    1.000    0.996    0.973    0.916</span></span>
-<span><span class="co">#&gt; # ℹ 25 more rows</span></span>
-<span><span class="co">#&gt; # ℹ 6 more variables: `p=0.40` &lt;dbl&gt;, `p=0.50` &lt;dbl&gt;,</span></span>
-<span><span class="co">#&gt; #   `p=0.60` &lt;dbl&gt;, `p=0.70` &lt;dbl&gt;, `p=0.80` &lt;dbl&gt;,</span></span>
-<span><span class="co">#&gt; #   `p=0.90` &lt;dbl&gt;</span></span></code></pre></div>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span></span>
+<span><span class="co">#&gt; Warning: package 'dplyr' was built under R version 4.4.3</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Adjuntando el paquete: 'dplyr'</span></span>
+<span><span class="co">#&gt; The following objects are masked from 'package:stats':</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;     filter, lag</span></span>
+<span><span class="co">#&gt; The following objects are masked from 'package:base':</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;     intersect, setdiff, setequal, union</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyr.tidyverse.org">tidyr</a></span><span class="op">)</span></span>
+<span><span class="co">#&gt; Warning: package 'tidyr' was built under R version 4.4.3</span></span>
+<span></span>
+<span><span class="co"># Probabilidades de éxito (p)</span></span>
+<span><span class="va">prob_exito</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.05</span>, <span class="fl">0.10</span>, <span class="fl">0.20</span>, <span class="fl">0.30</span>, <span class="fl">0.40</span>, </span>
+<span>                <span class="fl">0.50</span>, <span class="fl">0.60</span>, <span class="fl">0.70</span>, <span class="fl">0.80</span>, <span class="fl">0.90</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Número de ensayos (n)</span></span>
+<span><span class="va">num_ensayos</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">3</span>, <span class="fl">4</span>, <span class="fl">9</span>, <span class="fl">12</span><span class="op">)</span></span>
+<span></span>
+<span></span>
+<span><span class="co"># 1. Generar todas las combinaciones válidas (n, k, p)</span></span>
+<span><span class="va">grid</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/expand.grid.html">expand.grid</a></span><span class="op">(</span>Ensayos <span class="op">=</span> <span class="va">num_ensayos</span>, p <span class="op">=</span> <span class="va">prob_exito</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/pkg/magrittr/man/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/rowwise.html">rowwise</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/pkg/magrittr/man/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>Exitos <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="fl">0</span><span class="op">:</span><span class="va">Ensayos</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/pkg/magrittr/man/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/unnest.html">unnest</a></span><span class="op">(</span><span class="va">Exitos</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/pkg/magrittr/man/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">ungroup</a></span><span class="op">(</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># 2. Cálculo vectorizado de la CDF binomial</span></span>
+<span><span class="va">grid</span> <span class="op">&lt;-</span> <span class="va">grid</span> <span class="op"><a href="https://rdrr.io/pkg/magrittr/man/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>prob_acum <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html">pbinom</a></span><span class="op">(</span><span class="va">Exitos</span>, size <span class="op">=</span> <span class="va">Ensayos</span>, prob <span class="op">=</span> <span class="va">p</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># 3. Formato ancho (una columna por probabilidad)</span></span>
+<span><span class="va">tabla_final</span> <span class="op">&lt;-</span> <span class="va">grid</span> <span class="op"><a href="https://rdrr.io/pkg/magrittr/man/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_wider.html">pivot_wider</a></span><span class="op">(</span>names_from <span class="op">=</span> <span class="va">p</span>, values_from <span class="op">=</span> <span class="va">prob_acum</span>, </span>
+<span>              names_prefix <span class="op">=</span> <span class="st">"p="</span>, names_glue <span class="op">=</span> <span class="st">"p={formatC(p, format='f', digits=2)}"</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/pkg/magrittr/man/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="va">Ensayos</span>, <span class="va">Exitos</span><span class="op">)</span></span></code></pre></div>
 
 </div>
 </div>
@@ -160,7 +179,7 @@ Observe que:</p>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Modelos de Probabilidad para v.a. Discretas</strong>" was written by J.A. Rueda-Restrepo. It was last built on 2026-05-11.</p>
+    <p>"<strong>Modelos de Probabilidad para v.a. Discretas</strong>" was written by J.A. Rueda-Restrepo. It was last built on 2026-05-12.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

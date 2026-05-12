@@ -16,11 +16,11 @@ tabla-de-probabilidades
 control-de-calidad-en-semillas
 eficacia-de-un-fungicida
 planificación-de-siembra
+usando-aproximación-a-la-distribución-normal
 consideraciones-finales
 errores-comunes-a-evitar
 cuándo-usar-la-distribución-binomial
 herramientas-computacionales
-referencias-bibliográficas
 referencias
 función-acumulada-fap
 definición-general

@@ -49,7 +49,7 @@ $$Var(X)=\sigma^2_x= \frac{(1-p)}{p^2}$$
 
 - $r=2$
 
-$$\Omega_{Binomial ^{(-)}}=\{EE, FEE, EFE,..., \underbrace{FFEF...F}_{(x-2) \; fracasos, \;(2-1) \;éxitos}E\} \; \text{cuando} \; r=2$$
+$$\Omega_{Binomial ^{(-)}}=\{E E, F E E, E F E,..., \underbrace{F F E F...F}_{(x-2) \; fracasos \\\;(2-1) \;éxitos}E\} \; \text{cuando} \; r=2$$
 
 
 
