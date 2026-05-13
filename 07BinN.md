@@ -27,10 +27,12 @@ El espacio muestral asociado a este tipo de experimentos aleatorios tiene la for
 
 - Si $r=1$
 
+<p style="text-align: justify;">*Si me eres infiel una vez, la culpa es tuya. Si me eres infiel una segunda  vez, la culpa es mia*</p>
+
 > *Si me eres infiel una vez, la culpa es tuya. Si me eres infiel una segunda  vez, la culpa es mia*.
 
 
-$$\Omega_{Binomial ^{(-)}}=\{E, FE, FFE,..., \underbrace{FFF...FE}_{(x-1) fracasos, \;un \;éxito}\} \; \text{cuando} \; r=1$$
+$$\Omega_{Binomial ^{(-)}}=\{E, FE, FFE,..., \underbrace{FFF...FE}_{(x-1) \; ensayos, \\ \; 1  \;éxito}\} \; \text{cuando} \; r=1$$
 A la variable aleatoria X se le puede describir la función de Masa de probabilidad de la siguiente forma:
 
 
@@ -44,14 +46,24 @@ $$P(X=x)=p(1-p)^{x-1}=pq^{x-1} \; \text{para} \; x=\{1, 2, 3,...\}$$
 Parámetros
 
 $$E(X)= \frac{1}{p}$$
+En la medida en que la probabilidad de éxito sea más pequeña, entonces la probabilidad de tener que realizar más ensayos será mayor. 
+
+
 $$Var(X)=\sigma^2_x= \frac{(1-p)}{p^2}$$
 ---
 
 - $r=2$
 
-$$\Omega_{Binomial ^{(-)}}=\{E E, F E E, E F E,..., \underbrace{F F E F...F}_{(x-2) \; fracasos \\\;(2-1) \;éxitos}E\} \; \text{cuando} \; r=2$$
+$$\Omega_{Binomial ^{(-)}}=\{E E, F E E, E F E,..., \underbrace{F F E F...F}_{(x-1) \; ensayos \\\;(2-1) \;éxitos}E\} \; \text{cuando} \; r=2$$
 
 
+- $r=3$
+
+$$\Omega_{Binomial ^{(-)}}=\{E E E, F E E E, E F E E,..., \underbrace{F F E E F...F}_{(x-2) \; ensayos \\\;(3-1) \;éxitos}E\} \; \text{cuando} \; r=3$$
+
+_Observe_ la probabilidad de la cadena de eventos ocurridos antes del tercer éxito.  Esta probabilidad puede ser modelada usando un modelo binomial 
+
+$$\binom{x-1}{3-1}p^{x-1}q^{3-1}$$
 
 
 
@@ -77,8 +89,14 @@ $$\Omega_{Binomial ^{(-)}}=\{E E, F E E, E F E,..., \underbrace{F F E F...F}_{(x
 
 ### Probabilidad 
 
+Para establecer la forma funcional del modelo, la cadena de eventos previa al r-ésimo éxito tiene la forma:
+
+$$\binom{x-1}{r-1}p^{x-1}q^{r-1}$$
+
+Con esto, la probabilidad del evento en que ocurren los r éxitos:
+
 $$
-P(X=x)=\binom{x-r}{r-1}p^{x-r}q^{r-1}p
+P(X=x)=\binom{x-1}{r-1}p^{x-1}q^{x-1}p
 $$
 
 
@@ -90,7 +108,7 @@ $$
 ### Función de probabilidad
 
 $$
-P(X=x)=\binom{x-r}{r-1}p^rq^{r-1} \; \text{para} \; x=\{r, r+1, \dots\}
+P(X=x)=\binom{x-1}{r-1}p^rq^{x-1} \; \text{para} \; x=\{r, r+1, r+2, \dots\}
 $$
 
 ---

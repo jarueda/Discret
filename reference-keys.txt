@@ -38,6 +38,7 @@ sintesis
 binomial-negativa
 variable-aleatoria
 distribución-geomética-o-de-pascal
+varxsigma2_x-frac1-pp2
 comparación
 probabilidad
 modelo-probabilístico
@@ -54,7 +55,16 @@ definición-2
 aplicaciones
 relación-práctica-con-la-distribución-binomial
 ejemplos-1
-ejemplo-1-aplicación-directa-en-agronomía
-ejemplo-2-aproximación-poisson-a-binomial-en-ciencias-forestales
+ejemplo-1-1
+ejemplo-2-aproximación-poisson-a-binomial
 recomendaciones-metodológicas
 referencias-recomendadas-formato-apa
+distribución-hipergeométrica
+definición-3
+uso-en-ciencias-agronómicas
+relación-con-la-distribución-binomial
+ejemplos-2
+ejemplo-1-control-de-calidad---semillas
+ejemplo-2-monitoreo-de-árboles-infectados
+recomendaciones
+referencias-1

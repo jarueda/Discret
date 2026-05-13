@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Capítulo 8 Distribución Hipergeométrica | Modelos de Probabilidad para v.a. Discretas</title>
+<meta name="author" content="J.A. Rueda-Restrepo">
+<meta name="description" content="8.1 Definición La distribución hipergeométrica es un modelo probabilístico discreto que describe la probabilidad de obtener un número específico de “éxitos” al extraer una muestra sin reemplazo de...">
+<meta name="generator" content="bookdown 0.46 with bs4_book()">
+<meta property="og:title" content="Capítulo 8 Distribución Hipergeométrica | Modelos de Probabilidad para v.a. Discretas">
+<meta property="og:type" content="book">
+<meta property="og:description" content="8.1 Definición La distribución hipergeométrica es un modelo probabilístico discreto que describe la probabilidad de obtener un número específico de “éxitos” al extraer una muestra sin reemplazo de...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Capítulo 8 Distribución Hipergeométrica | Modelos de Probabilidad para v.a. Discretas">
+<meta name="twitter:description" content="8.1 Definición La distribución hipergeométrica es un modelo probabilístico discreto que describe la probabilidad de obtener un número específico de “éxitos” al extraer una muestra sin reemplazo de...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.10.0/transition.js"></script><script src="libs/bs3compat-0.10.0/tabs.js"></script><script src="libs/bs3compat-0.10.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Modelos de Probabilidad para v.a. Discretas</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html"><span class="header-section-number">1</span> Modelos para v.a. Discretas</a></li>
+<li><a class="" href="binomial.html"><span class="header-section-number">2</span> Binomial</a></li>
+<li><a class="" href="ejemplos.html"><span class="header-section-number">3</span> Ejemplos</a></li>
+<li><a class="" href="referencias.html"><span class="header-section-number">4</span> Referencias</a></li>
+<li><a class="" href="funci%C3%B3n-acumulada-fap.html"><span class="header-section-number">5</span> Función Acumulada (FAP)</a></li>
+<li><a class="" href="binomial-negativa.html"><span class="header-section-number">6</span> Binomial Negativa</a></li>
+<li><a class="" href="distribuci%C3%B3n-de-poisson.html"><span class="header-section-number">7</span> Distribución de Poisson</a></li>
+<li><a class="active" href="distribuci%C3%B3n-hipergeom%C3%A9trica.html"><span class="header-section-number">8</span> Distribución Hipergeométrica</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/jarueda">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="distribución-hipergeométrica" class="section level1" number="8">
+<h1>
+<span class="header-section-number">Capítulo 8</span> Distribución Hipergeométrica<a class="anchor" aria-label="anchor" href="#distribuci%C3%B3n-hipergeom%C3%A9trica"><i class="fas fa-link"></i></a>
+</h1>
+<div id="definición-3" class="section level2" number="8.1">
+<h2>
+<span class="header-section-number">8.1</span> Definición<a class="anchor" aria-label="anchor" href="#definici%C3%B3n-3"><i class="fas fa-link"></i></a>
+</h2>
+<p>La distribución hipergeométrica es un modelo probabilístico discreto que describe la probabilidad de obtener un número específico de “éxitos” al extraer una muestra <strong>sin reemplazo</strong> de una población finita con dos categorías mutuamente excluyentes. Su estructura responde a escenarios donde la probabilidad de éxito cambia en cada extracción, violando el supuesto de independencia constante propio de otros modelos.</p>
+<p>Su función de masa de probabilidad (FMP) se expresa como:</p>
+<p><code>P(X = x) = [C(K, x) * C(N - K, n - x)] / C(N, n)</code></p>
+<p>donde:</p>
+<ul>
+<li><p><strong>N</strong>: tamaño total de la población finita.</p></li>
+<li><p><strong>K</strong>: número total de elementos con la característica de interés (“éxitos”) en la población.</p></li>
+<li><p><strong>n</strong>: tamaño de la muestra extraída sin reemplazo.</p></li>
+<li><p><strong>x</strong>: número observado de éxitos en la muestra (variable aleatoria).</p></li>
+<li><p><strong>C(a, b)</strong>: coeficiente binomial “a elija b”, que cuenta las combinaciones posibles.</p></li>
+</ul>
+<p><strong>Momentos principales</strong>:</p>
+<ul>
+<li><p>Esperanza matemática: <code>E[X] = n * (K / N)</code></p></li>
+<li><p>Varianza: <code>Var(X) = n * (K/N) * (1 - K/N) * [(N - n) / (N - 1)]</code></p></li>
+</ul>
+<p>El término <code>[(N - n) / (N - 1)]</code> se denomina <strong>factor de corrección por población finita</strong>. Este ajuste reduce la varianza respecto a la binomial, reflejando la menor incertidumbre cuando se muestrea una proporción significativa de una población cerrada.</p>
+<div class="inline-figure"><img src="Hiperg.png" style="width:90.0%"></div>
+</div>
+<div id="uso-en-ciencias-agronómicas" class="section level2" number="8.2">
+<h2>
+<span class="header-section-number">8.2</span> 2. Uso en Ciencias Agronómicas<a class="anchor" aria-label="anchor" href="#uso-en-ciencias-agron%C3%B3micas"><i class="fas fa-link"></i></a>
+</h2>
+<p>En estas disciplinas, la distribución hipergeométrica es metodológicamente pertinente cuando el muestreo se realiza sobre unidades discretas, finitas y sin reposición. Sus aplicaciones típicas incluyen:</p>
+<ul>
+<li><p><strong>Control de calidad en lotes de semillas</strong>: Evaluación de la proporción de semillas viables o contaminadas en un lote certificado de tamaño conocido.</p></li>
+<li><p><strong>Inventario forestal</strong>: Estimación de árboles infectados por patógenos en un rodal delimitado, donde cada árbol muestreado no puede ser seleccionado nuevamente.</p></li>
+<li><p><strong>Monitoreo de biodiversidad</strong>: Detección de especies raras o amenazadas en parcelas de muestreo cerradas, especialmente cuando la población total es censada o estimada con precisión.</p></li>
+<li><p><strong>Evaluación de contaminación</strong>: Análisis de presencia/ausencia de contaminantes en un número finito de muestras de suelo o agua extraídas de un sitio acotado.</p></li>
+</ul>
+<p><em>Intervención asistida por IA</em>: Las herramientas computacionales pueden calcular probabilidades hipergeométricas exactas y simular escenarios de muestreo. No obstante, el investigador debe verificar que:</p>
+<ol style="list-style-type: lower-roman">
+<li><p>la población sea efectivamente finita y conocida,</p></li>
+<li><p>el muestreo sea verdaderamente sin reemplazo, y</p></li>
+<li><p>no exista agrupamiento espacial que viole la aleatoriedad. Cuando estos supuestos se debilitan, modelos alternativos (binomial con corrección, beta-binomial o modelos jerárquicos) pueden ser más apropiados.</p></li>
+</ol>
+</div>
+<div id="relación-con-la-distribución-binomial" class="section level2" number="8.3">
+<h2>
+<span class="header-section-number">8.3</span> 3. Relación con la Distribución Binomial<a class="anchor" aria-label="anchor" href="#relaci%C3%B3n-con-la-distribuci%C3%B3n-binomial"><i class="fas fa-link"></i></a>
+</h2>
+<p>La conexión entre ambas distribuciones es fundamental para la toma de decisiones en el diseño experimental:</p>
+<div class="inline-table"><table class="table table-sm">
+<colgroup>
+<col width="35%">
+<col width="23%">
+<col width="40%">
+</colgroup>
+<thead><tr class="header">
+<th>Característica</th>
+<th>Binomial</th>
+<th>Hipergeométrica</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td><strong>Muestreo</strong></td>
+<td>Con reemplazo (o población infinita)</td>
+<td>Sin reemplazo (población finita)</td>
+</tr>
+<tr class="even">
+<td><strong>Independencia</strong></td>
+<td>Ensayos independientes</td>
+<td>Probabilidad cambia en cada extracción</td>
+</tr>
+<tr class="odd">
+<td><strong>Parámetros</strong></td>
+<td>n, p</td>
+<td>N, K, n</td>
+</tr>
+<tr class="even">
+<td><strong>Varianza</strong></td>
+<td>n·p·(1-p)</td>
+<td>n·p·(1-p)·[(N-n)/(N-1)]</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Regla práctica de aproximación</strong>: Cuando el tamaño muestral <code>n</code> representa menos del 5-10 % del total poblacional <code>N</code> (es decir, <code>n/N &lt; 0.05</code>), el factor de corrección <code>(N-n)/(N-1)</code> se aproxima a 1, y la distribución hipergeométrica puede aproximarse por una binomial con <code>p = K/N</code>. Esta simplificación reduce la carga computacional sin sacrificar precisión relevante.</p>
+<p><strong>Consecuencias metodológicas</strong>:</p>
+<ul>
+<li><p><em>Diseño eficiente</em>: En poblaciones grandes, usar la binomial como aproximación permite aplicar pruebas y intervalos estándar.</p></li>
+<li><p><em>Riesgo de subestimación</em>: Si <code>n/N</code> es grande y se ignora el factor de corrección, se sobreestima la varianza, lo que puede conducir a intervalos de confianza innecesariamente amplios o a pérdida de potencia estadística.</p></li>
+<li><p><em>Detección de violaciones</em>: La IA puede ayudar a graficar la relación entre la proporción muestral y el tamaño relativo <code>n/N</code>, alertando cuando la aproximación binomial deja de ser adecuada.</p></li>
+</ul>
+</div>
+<div id="ejemplos-2" class="section level2" number="8.4">
+<h2>
+<span class="header-section-number">8.4</span> Ejemplos<a class="anchor" aria-label="anchor" href="#ejemplos-2"><i class="fas fa-link"></i></a>
+</h2>
+<div id="ejemplo-1-control-de-calidad---semillas" class="section level3" number="8.4.1">
+<h3>
+<span class="header-section-number">8.4.1</span> Ejemplo 1: Control de Calidad - Semillas<a class="anchor" aria-label="anchor" href="#ejemplo-1-control-de-calidad---semillas"><i class="fas fa-link"></i></a>
+</h3>
+<p><strong>Contexto</strong>: Un lote certificado contiene N = 500 semillas, de las cuales se sabe que K = 25 presentan contaminación fúngica. Se extrae una muestra aleatoria sin reemplazo de n = 30 semillas para validación. Calcule la probabilidad de encontrar exactamente k = 2 semillas contaminadas.</p>
+<p><strong>Paso 1. Identificar parámetros</strong>: N = 500, K = 25, n = 30, k = 2.</p>
+<p><strong>Paso 2. Aplicar la FMP hipergeométrica</strong>:
+P(X = 2) = [C(25, 2) * C(475, 28)] / C(500, 30)</p>
+<p><strong>Paso 3. Cálculo numérico</strong> (usando software para evitar errores manuales):</p>
+<ul>
+<li><p>C(25, 2) = 300</p></li>
+<li><p>C(475, 28) ≈ 1.847 × 10^41</p></li>
+<li><p>C(500, 30) ≈ 2.119 × 10^43</p></li>
+<li><p>P(X = 2) ≈ (300 × 1.847e41) / 2.119e43 ≈ 0.261</p></li>
+</ul>
+<p><strong>Paso 4. Interpretación</strong>: Existe aproximadamente un 26.1 % de probabilidad de observar exactamente 2 semillas contaminadas en la muestra de 30, bajo las condiciones del lote.</p>
+<p><em>Verificación computacional (R)</em>:</p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/Hypergeometric.html">dhyper</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">2</span>, m <span class="op">=</span> <span class="fl">25</span>, n <span class="op">=</span> <span class="fl">475</span>, k <span class="op">=</span> <span class="fl">30</span><span class="op">)</span></span>
+<span><span class="co"># Resultado: 0.2613</span></span></code></pre></div>
+</div>
+<div id="ejemplo-2-monitoreo-de-árboles-infectados" class="section level3" number="8.4.2">
+<h3>
+<span class="header-section-number">8.4.2</span> Ejemplo 2: Monitoreo de Árboles Infectados<a class="anchor" aria-label="anchor" href="#ejemplo-2-monitoreo-de-%C3%A1rboles-infectados"><i class="fas fa-link"></i></a>
+</h3>
+<p><strong>Contexto</strong>: En un rodal de N = 200 pinos, se ha censado que K = 40 presentan síntomas de una enfermedad vascular. Un equipo de campo selecciona n = 25 árboles al azar sin reemplazo para análisis de laboratorio. Calcule la probabilidad de que al menos 3 árboles muestreados estén infectados.</p>
+<p><strong>Paso 1. Reformular el evento</strong>: P(X ≥ 3) = 1 - P(X ≤ 2) = 1 - [P(0) + P(1) + P(2)].</p>
+<p><strong>Paso 2. Calcular cada término con la FMP</strong>:</p>
+<ul>
+<li><p>P(0) = [C(40,0)*C(160,25)] / C(200,25) ≈ 0.0032</p></li>
+<li><p>P(1) = [C(40,1)*C(160,24)] / C(200,25) ≈ 0.0201</p></li>
+<li><p>P(2) = [C(40,2)*C(160,23)] / C(200,25) ≈ 0.0618</p></li>
+</ul>
+<p><strong>Paso 3. Sumar y complementar</strong>:</p>
+<p>P(X ≤ 2) ≈ 0.0032 + 0.0201 + 0.0618 = 0.0851</p>
+<p>P(X ≥ 3) = 1 - 0.0851 = 0.9149</p>
+<p><strong>Paso 4. Interpretación</strong>: Existe un 91.5 % de probabilidad de detectar al menos 3 árboles infectados en la muestra, lo que sugiere alta sensibilidad del protocolo de muestreo para esta prevalencia.</p>
+<p><em>Verificación computacional (Python)</em>:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="distribuci%C3%B3n-hipergeom%C3%A9trica.html#cb5-1" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> hypergeom</span>
+<span id="cb5-2"><a href="distribuci%C3%B3n-hipergeom%C3%A9trica.html#cb5-2" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="distribuci%C3%B3n-hipergeom%C3%A9trica.html#cb5-3" tabindex="-1"></a>N, K, n <span class="op">=</span> <span class="dv">200</span>, <span class="dv">40</span>, <span class="dv">25</span></span>
+<span id="cb5-4"><a href="distribuci%C3%B3n-hipergeom%C3%A9trica.html#cb5-4" tabindex="-1"></a><span class="co"># Probabilidad acumulada hasta 2</span></span>
+<span id="cb5-5"><a href="distribuci%C3%B3n-hipergeom%C3%A9trica.html#cb5-5" tabindex="-1"></a>prob_le2 <span class="op">=</span> hypergeom.cdf(<span class="dv">2</span>, N, K, n)</span>
+<span id="cb5-6"><a href="distribuci%C3%B3n-hipergeom%C3%A9trica.html#cb5-6" tabindex="-1"></a>prob_ge3 <span class="op">=</span> <span class="dv">1</span> <span class="op">-</span> prob_le2</span>
+<span id="cb5-7"><a href="distribuci%C3%B3n-hipergeom%C3%A9trica.html#cb5-7" tabindex="-1"></a></span>
+<span id="cb5-8"><a href="distribuci%C3%B3n-hipergeom%C3%A9trica.html#cb5-8" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"P(X &gt;= 3) = </span><span class="sc">{</span>prob_ge3<span class="sc">:.4f}</span><span class="ss">"</span>)</span>
+<span id="cb5-9"><a href="distribuci%C3%B3n-hipergeom%C3%A9trica.html#cb5-9" tabindex="-1"></a><span class="co"># Salida esperada: P(X &gt;= 3) = 0.9149</span></span></code></pre></div>
+</div>
+</div>
+<div id="recomendaciones" class="section level2" number="8.5">
+<h2>
+<span class="header-section-number">8.5</span> 5. Recomendaciones<a class="anchor" aria-label="anchor" href="#recomendaciones"><i class="fas fa-link"></i></a>
+</h2>
+<ul>
+<li><p><strong>Validación de supuestos</strong>: Confirme que la población sea finita y conocida (N), que el muestreo sea aleatorio y sin reemplazo, y que no exista estructura espacial que induzca dependencia entre unidades. Cuando la población sea grande y <code>n/N &lt; 0.05</code>, documente explícitamente el uso de la aproximación binomial y justifique su pertinencia.</p></li>
+<li><p><strong>Manejo de sobredispersión</strong>: Si la varianza observada supera a la teórica hipergeométrica, considere modelos que incorporen heterogeneidad no observada (beta-binomial) o efectos aleatorios espaciales.</p></li>
+<li><p><strong>Uso ético de la IA</strong>: Las plataformas de inteligencia artificial pueden generar código, calcular probabilidades exactas y sugerir diagnósticos gráficos. Sin embargo, la interpretación ecológica-agronómica, la validación de supuestos y la trazabilidad de decisiones analíticas deben permanecer bajo criterio experto. Documente versiones de software, paquetes y criterios de selección de modelos.</p></li>
+<li>
+<p><strong>Preguntas para estimular el pensamiento crítico</strong>:</p>
+<ol style="list-style-type: decimal">
+<li><p>¿Cómo modificaría el diseño de muestreo si la población N no se conoce con precisión, sino que está estimada con error?</p></li>
+<li><p>¿Qué estrategia emplearía para distinguir entre variabilidad aleatoria y agregación espacial en conteos de especies raras?</p></li>
+<li><p>¿En qué escenarios de monitoreo ambiental sería metodológicamente riesgoso aproximar la hipergeométrica por la binomial?</p></li>
+</ol>
+</li>
+</ul>
+<div id="referencias-1" class="section level3" number="8.5.1">
+<h3>
+<span class="header-section-number">8.5.1</span> Referencias<a class="anchor" aria-label="anchor" href="#referencias-1"><i class="fas fa-link"></i></a>
+</h3>
+<ul>
+<li><p>Agresti, A. (2018). <em>Statistical methods for the social sciences</em> (5.ª ed.). Pearson.</p></li>
+<li><p>Hilbe, J. M. (2014). <em>Modeling count data</em>. Cambridge University Press.</p></li>
+<li><p>R Core Team. (2025). <em>R: A language and environment for statistical computing</em>. R Foundation for Statistical Computing. <a href="https://www.R-project.org/" class="uri">https://www.R-project.org/</a></p></li>
+<li><p>SciPy Developers. (2025). <em>SciPy: Open source software for mathematics, science, and engineering</em>. <a href="https://scipy.org/" class="uri">https://scipy.org/</a></p></li>
+<li><p>Thompson, S. K. (2012). <em>Sampling</em> (3.ª ed.). Wiley.</p></li>
+<li><p>Zar, J. H. (2010). <em>Biostatistical analysis</em> (5.ª ed.). Pearson Prentice Hall.</p></li>
+</ul>
+</div>
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="distribuci%C3%B3n-de-poisson.html"><span class="header-section-number">7</span> Distribución de Poisson</a></div>
+<div class="empty"></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#distribuci%C3%B3n-hipergeom%C3%A9trica"><span class="header-section-number">8</span> Distribución Hipergeométrica</a></li>
+<li><a class="nav-link" href="#definici%C3%B3n-3"><span class="header-section-number">8.1</span> Definición</a></li>
+<li><a class="nav-link" href="#uso-en-ciencias-agron%C3%B3micas"><span class="header-section-number">8.2</span> 2. Uso en Ciencias Agronómicas</a></li>
+<li><a class="nav-link" href="#relaci%C3%B3n-con-la-distribuci%C3%B3n-binomial"><span class="header-section-number">8.3</span> 3. Relación con la Distribución Binomial</a></li>
+<li>
+<a class="nav-link" href="#ejemplos-2"><span class="header-section-number">8.4</span> Ejemplos</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#ejemplo-1-control-de-calidad---semillas"><span class="header-section-number">8.4.1</span> Ejemplo 1: Control de Calidad - Semillas</a></li>
+<li><a class="nav-link" href="#ejemplo-2-monitoreo-de-%C3%A1rboles-infectados"><span class="header-section-number">8.4.2</span> Ejemplo 2: Monitoreo de Árboles Infectados</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#recomendaciones"><span class="header-section-number">8.5</span> 5. Recomendaciones</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#referencias-1"><span class="header-section-number">8.5.1</span> Referencias</a></li></ul>
+</li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/jarueda/blob/master/09Hiperg.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/jarueda/edit/master/09Hiperg.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Modelos de Probabilidad para v.a. Discretas</strong>" was written by J.A. Rueda-Restrepo. It was last built on 2026-05-13.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

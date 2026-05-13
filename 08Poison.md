@@ -2,15 +2,19 @@
 
 ## 1. Definición 
 
-La distribución de Poisson es un modelo probabilístico discreto diseñado para describir el número de ocurrencias de un evento en un intervalo fijo de tiempo, espacio o volumen. Se fundamenta en dos supuestos estructurales: 
+La distribución de Poisson es un modelo probabilístico discreto diseñado para describir el número de ocurrencias de un evento en un intervalo fijo de tiempo, espacio o volumen. Se fundamenta en los supuestos estructurales: 
 
-- (i) los eventos ocurren a una tasa media constante (λ) y 
+- (i) los eventos ocurren a una tasa media constante (λ)  
 
 - (ii) las ocurrencias son mutuamente independientes.
 
+- (iii) la tasa media de éxitos es proporcional al tamaño del intervalo considerado.
+
+
+
 Su función de masa de probabilidad (FMP) se expresa como:
 
-$$P(X = x) = \frac{λ^x e^{-λ}}{x!}, \; \text{para} \; x=\{0, 1, 2, 3\}$$
+$$P(X = x) = \frac{λ^x e^{-λ}}{x!}, \; \text{para} \; x=\{0, 1, 2, 3, ...\}$$
 
 donde:
 
@@ -18,7 +22,7 @@ donde:
 
 - **x**: número entero no negativo de ocurrencias (0, 1, 2, …).
 
-- **λ**: parámetro de tasa (> 0), que coincide con la esperanza matemática y la varianza de la distribución: $E[X] = λ$ y $Var(X) = λ$.
+- **λ**: parámetro de la distribución. tasa media de éxitos (> 0), que coincide con la esperanza matemática y la varianza de la distribución: $E[X] = λ$ y $Var(X) = λ$.
 
 - **e**: constante de Euler (≈ 2.71828).
 
@@ -57,7 +61,7 @@ entonces `B(n, p)` converge a `Poisson(λ)`. Este resultado se conoce como **Teo
 
 ## Ejemplos 
 
-### Ejemplo 1: Aplicación Directa en Agronomía
+### Ejemplo 1: 
 **Contexto**: En un ensayo de manejo integrado, se registra una media de λ = 3 insectos defoliadores por planta. Calcule la probabilidad de encontrar exactamente 2 insectos en una planta seleccionada al azar.
 
 **Paso 1. Identificar parámetros**: λ = 3, k = 2.
@@ -74,7 +78,10 @@ dpois(x = 2, lambda = 3)
 # Resultado: 0.2240418
 ```
 
-### Ejemplo 2: Aproximación Poisson a Binomial en Ciencias Forestales
+### Ejemplo 2: Aproximación Poisson a Binomial
+
+Si una v.a. $X \sim Bin(x;n;P)$, cuando $n \rightarrow \infty$, entonces la distribución de $X$ tiende a: $$ X \dot \sim Poisson(x; \lambda=np)$$
+
 **Contexto**: En una plantación de 500 árboles (n = 500), la probabilidad histórica de infección por un hongo vasculares es p = 0.008. Calcule la probabilidad de que exactamente 3 árboles estén infectados.
 
 **Paso 1. Verificar condiciones**: n es grande, p es pequeña, λ = n * p = 500 * 0.008 = 4. La aproximación es válida.
@@ -86,6 +93,18 @@ P(X = 3) = C(500,3) * (0.008)^3 * (0.992)^497 ≈ 0.1956
 P(X = 3) = (4^3 * e^(-4)) / 3! = (64 * 0.018316) / 6 ≈ 0.1954
 
 **Paso 4. Comparación**: La diferencia absoluta es ≈ 0.0002, lo que confirma la utilidad práctica de la aproximación.
+
+
+*Desarrolle de forma autónoma*
+
+- Suponga que la abundancia de cierta especie en ecosistemas poco intervenidos se estima en  un individuo por hectárea y que ésta puede ser modelada por una v.a. Poisson.
+
+Estime la probabilidad de que cuando se inspeccione un lote de cinco hectáreas se observen al menos cuatro individuos. 
+
+- En otro territorio, por estudios previos, se estableció que la probabilidad de que no se encuentre individuo alguno en una hectárea cualquiera es de 0.001234.
+
+Si se realizan observaciones en dicho territorio ¿cuál es la probabilidad de se observen más de siete individuos en una parcela de cuatro hectáreas?
+
 
 *Verificación computacional (Python)*:
 ```python
