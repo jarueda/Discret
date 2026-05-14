@@ -12,7 +12,10 @@ La distribución de Poisson es un modelo probabilístico discreto diseñado para
 
 
 
-Su función de masa de probabilidad (FMP) se expresa como:
+Su función de masa de probabilidad (FMP) se origina del límite:
+
+$$lim_{n \rightarrow \infty \\ p \rightarrow 0} \binom{n}{x} p^x q^{n-x}$$
+
 
 $$P(X = x) = \frac{λ^x e^{-λ}}{x!}, \; \text{para} \; x=\{0, 1, 2, 3, ...\}$$
 
@@ -23,31 +26,34 @@ donde:
 - **x**: número entero no negativo de ocurrencias (0, 1, 2, …).
 
 - **λ**: parámetro de la distribución. tasa media de éxitos (> 0), que coincide con la esperanza matemática y la varianza de la distribución: $E[X] = λ$ y $Var(X) = λ$.
+$$\lambda=np, \; \text{originado en la binomial}$$
 
 - **e**: constante de Euler (≈ 2.71828).
 
 Esta propiedad de equidispersión (media = varianza) es el núcleo teórico del modelo y, simultáneamente, su principal punto de vulnerabilidad en aplicaciones empíricas.
 
 ## Aplicaciones
-En nuestras disciplinas, los datos de conteo son frecuentes y la distribución de Poisson ofrece un marco parsimonioso para su modelado. Su aplicabilidad se justifica cuando el fenómeno estudiado cumple con las siguientes características:
+Los datos de conteo son frecuentes y la distribución de Poisson ofrece un marco parsimonioso para su modelado. Su aplicabilidad se justifica cuando el fenómeno estudiado cumple con las siguientes características:
 
 - **Unidades de muestreo delimitadas**: parcelas experimentales, cuadrantes vegetacionales, estaciones pluviométricas o transectos lineales.
+
 - **Eventos discretos y relativamente escasos**: plagas por planta, plántulas por metro cuadrado, detecciones de especies amenazadas, eventos de erosión por ladera, o incidencias de contaminación por muestra.
+
 - **Independencia operativa**: la presencia de un evento no altera significativamente la probabilidad de ocurrencia de otro en la misma unidad o intervalo.
 
-*Intervención asistida por IA*: Las herramientas computacionales pueden automatizar la exploración de datos y la selección inicial de modelos. Sin embargo, el investigador debe validar que la tasa λ no varíe sistemáticamente por covariables no medidas (heterogeneidad ambiental) y que no exista agregación espacial (clustering), ya que ambos escenarios violan la equidispersión y exigen modelos alternativos (Poisson inflado por ceros, Binomial Negativa, o modelos mixtos con efectos aleatorios).
+*Intervención asistida por IA*: Las herramientas computacionales pueden automatizar la exploración de datos y la selección inicial de modelos. Sin embargo, el investigador debe validar que la tasa λ no varíe sistemáticamente por _covariables no medidas_ (heterogeneidad ambiental) y que no exista agregación espacial (clustering), ya que ambos escenarios violan la equidispersión y exigen modelos alternativos (Poisson inflado por ceros, Binomial Negativa, o modelos mixtos con efectos aleatorios).
 
 ## Relación Práctica con la Distribución Binomial
 
 La conexión entre Poisson y Binomial trasciende lo teórico; tiene implicaciones directas en el diseño experimental y la eficiencia computacional.
 
-La Binomial `B(n, p)` modela éxitos en `n` ensayos independientes con probabilidad constante `p`. Cuando se cumplen simultáneamente:
+La Binomial $B(n, p)$ modela éxitos en $n$ ensayos independientes con probabilidad constante $p$. Cuando se cumplen simultáneamente:
 
-1. `n` es grande (habitualmente ≥ 30 o ≥ 50),
+1. $n$ es grande (habitualmente ≥ 30 o ≥ 50),
 
-2. `p` es pequeña (≤ 0.10),
+2. $p$ es pequeña (≤ 0.10),
 
-3. El producto `λ = n * p` permanece finito y constante,
+3. El producto $λ = n * p$ permanece finito y constante,
 
 entonces `B(n, p)` converge a `Poisson(λ)`. Este resultado se conoce como **Teorema de Poisson** o ley de los eventos raros.
 
@@ -57,18 +63,25 @@ entonces `B(n, p)` converge a `Poisson(λ)`. Este resultado se conoce como **Teo
 
 - *Límite superior*: la Binomial está acotada por `n`, mientras que Poisson no tiene cota superior. Si el conteo real puede acercarse al tamaño muestral, la aproximación pierde precisión.
 
-- *Violaciones comunes*: en campo, la independencia rara vez es perfecta. Si existe dependencia espacial o temporal, o si la probabilidad de ocurrencia varía entre unidades, la varianza observada supera a la media (sobredispersión). Tanto Binomial como Poisson subestiman entonces la incertidumbre, inflando los errores tipo I. La IA puede alertar mediante gráficos de residuos deviance vs. valores ajustados o mediante la prueba de razón de verosimilitud comparando Poisson con Binomial Negativa.
+- *Violaciones comunes*: en campo, la independencia rara vez es perfecta. 
+
+* Si existe dependencia espacial o temporal, o si la probabilidad de ocurrencia varía entre unidades, la varianza observada supera a la media (sobredispersión). 
+
+* Tanto Binomial como Poisson subestiman entonces la incertidumbre, inflando los errores tipo I. La IA puede alertar mediante gráficos de residuos deviance vs. valores ajustados o mediante la prueba de razón de verosimilitud comparando Poisson con Binomial Negativa.
 
 ## Ejemplos 
 
 ### Ejemplo 1: 
-**Contexto**: En un ensayo de manejo integrado, se registra una media de λ = 3 insectos defoliadores por planta. Calcule la probabilidad de encontrar exactamente 2 insectos en una planta seleccionada al azar.
+
+**Contexto**: En un ensayo de manejo integrado, se registra una media de $λ = 3$ insectos defoliadores por planta. Calcule la probabilidad de encontrar exactamente 2 insectos en una planta seleccionada al azar.
 
 **Paso 1. Identificar parámetros**: λ = 3, k = 2.
 
 **Paso 2. Sustituir en la FMP**:
-P(X = 2) = (3^2 * e^(-3)) / 2!
-P(X = 2) = (9 * 0.049787) / 2 ≈ 0.2240
+
+$P(X = 2) = (3^2 * e^{-3}) / 2!$
+
+$P(X = 2) = (9 * 0.049787) / 2 ≈ 0.2240$
 
 **Paso 3. Interpretación**: Existe un 22.40 % de probabilidad de observar exactamente 2 insectos por planta bajo las condiciones del estudio.
 
@@ -120,18 +133,23 @@ print(f"Aprox. Poisson:  {prob_pois:.4f}")
 
 ## Recomendaciones Metodológicas
 
-- **Diagnóstico de supuestos**: Antes de adoptar Poisson, grafique la relación media-varianza por unidad de muestreo. Si la razón Var/Media > 1.5, considere modelos de sobredispersión. Si los ceros son excesivos, evalúe Poisson inflado por ceros (ZIP).
+- **Diagnóstico de supuestos**: Antes de adoptar Poisson, grafique la relación media-varianza por unidad de muestreo. 
 
-- **Uso ético de la IA**: Las plataformas de inteligencia artificial son valiosas para proponer estructuras de código, generar diagnósticos iniciales y sugerir transformaciones. No obstante, la validación teórica, la interpretación biológica-ecológica y la trazabilidad de los supuestos deben permanecer bajo criterio experto. Documente siempre las versiones de software, los paquetes utilizados y los criterios de selección de modelos.
+Si la razón Var/Media > 1.5, considere modelos de sobredispersión. 
+
+Si los ceros son excesivos, evalúe Poisson inflado por ceros.
+
 
 - **Preguntas**:
+
   1. ¿Cómo incorporaría la variabilidad entre parcelas (efecto aleatorio) sin violar la independencia dentro de cada unidad?
   
   2. ¿Qué prueba formal o gráfico residual utilizaría para distinguir entre sobredispersión y exceso de ceros?
   
   3. ¿En qué escenarios de monitoreo ambiental sería metodológicamente incorrecto reemplazar la Binomial por Poisson?
 
-### Referencias Recomendadas (Formato APA)
+### Referencias 
+
 - Agresti, A. (2018). *Statistical methods for the social sciences* (5.ª ed.). Pearson.
 
 - Hilbe, J. M. (2014). *Modeling count data*. Cambridge University Press.

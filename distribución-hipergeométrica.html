@@ -7,7 +7,7 @@
 <title>Capítulo 8 Distribución Hipergeométrica | Modelos de Probabilidad para v.a. Discretas</title>
 <meta name="author" content="J.A. Rueda-Restrepo">
 <meta name="description" content="8.1 Definición La distribución hipergeométrica es un modelo probabilístico discreto que describe la probabilidad de obtener un número específico de “éxitos” al extraer una muestra sin reemplazo de...">
-<meta name="generator" content="bookdown 0.46 with bs4_book()">
+<meta name="generator" content="bookdown 0.34 with bs4_book()">
 <meta property="og:title" content="Capítulo 8 Distribución Hipergeométrica | Modelos de Probabilidad para v.a. Discretas">
 <meta property="og:type" content="book">
 <meta property="og:description" content="8.1 Definición La distribución hipergeométrica es un modelo probabilístico discreto que describe la probabilidad de obtener un número específico de “éxitos” al extraer una muestra sin reemplazo de...">
@@ -16,7 +16,7 @@
 <meta name="twitter:description" content="8.1 Definición La distribución hipergeométrica es un modelo probabilístico discreto que describe la probabilidad de obtener un número específico de “éxitos” al extraer una muestra sin reemplazo de...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.10.0/transition.js"></script><script src="libs/bs3compat-0.10.0/tabs.js"></script><script src="libs/bs3compat-0.10.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.5.0/transition.js"></script><script src="libs/bs3compat-0.5.0/tabs.js"></script><script src="libs/bs3compat-0.5.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
     
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
@@ -114,28 +114,28 @@
 <col width="23%">
 <col width="40%">
 </colgroup>
-<thead><tr class="header">
+<thead><tr>
 <th>Característica</th>
 <th>Binomial</th>
 <th>Hipergeométrica</th>
 </tr></thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><strong>Muestreo</strong></td>
 <td>Con reemplazo (o población infinita)</td>
 <td>Sin reemplazo (población finita)</td>
 </tr>
-<tr class="even">
+<tr>
 <td><strong>Independencia</strong></td>
 <td>Ensayos independientes</td>
 <td>Probabilidad cambia en cada extracción</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><strong>Parámetros</strong></td>
 <td>n, p</td>
 <td>N, K, n</td>
 </tr>
-<tr class="even">
+<tr>
 <td><strong>Varianza</strong></td>
 <td>n·p·(1-p)</td>
 <td>n·p·(1-p)·[(N-n)/(N-1)]</td>
@@ -220,9 +220,9 @@ P(X = 2) = [C(25, 2) * C(475, 28)] / C(500, 30)</p>
 </ol>
 </li>
 </ul>
-<div id="referencias-1" class="section level3" number="8.5.1">
+<div id="referencias-2" class="section level3" number="8.5.1">
 <h3>
-<span class="header-section-number">8.5.1</span> Referencias<a class="anchor" aria-label="anchor" href="#referencias-1"><i class="fas fa-link"></i></a>
+<span class="header-section-number">8.5.1</span> Referencias<a class="anchor" aria-label="anchor" href="#referencias-2"><i class="fas fa-link"></i></a>
 </h3>
 <ul>
 <li><p>Agresti, A. (2018). <em>Statistical methods for the social sciences</em> (5.ª ed.). Pearson.</p></li>
@@ -252,7 +252,7 @@ P(X = 2) = [C(25, 2) * C(475, 28)] / C(500, 30)</p>
 </ul>
 </li>
 <li>
-<a class="nav-link" href="#recomendaciones"><span class="header-section-number">8.5</span> 5. Recomendaciones</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#referencias-1"><span class="header-section-number">8.5.1</span> Referencias</a></li></ul>
+<a class="nav-link" href="#recomendaciones"><span class="header-section-number">8.5</span> 5. Recomendaciones</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#referencias-2"><span class="header-section-number">8.5.1</span> Referencias</a></li></ul>
 </li>
 </ul>
 
@@ -271,7 +271,7 @@ P(X = 2) = [C(25, 2) * C(475, 28)] / C(500, 30)</p>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Modelos de Probabilidad para v.a. Discretas</strong>" was written by J.A. Rueda-Restrepo. It was last built on 2026-05-13.</p>
+    <p>"<strong>Modelos de Probabilidad para v.a. Discretas</strong>" was written by J.A. Rueda-Restrepo. It was last built on 2026-05-14.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

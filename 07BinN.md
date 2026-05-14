@@ -27,12 +27,11 @@ El espacio muestral asociado a este tipo de experimentos aleatorios tiene la for
 
 - Si $r=1$
 
-<p style="text-align: justify;">*Si me eres infiel una vez, la culpa es tuya. Si me eres infiel una segunda  vez, la culpa es mia*</p>
 
 > *Si me eres infiel una vez, la culpa es tuya. Si me eres infiel una segunda  vez, la culpa es mia*.
 
 
-$$\Omega_{Binomial ^{(-)}}=\{E, FE, FFE,..., \underbrace{FFF...FE}_{(x-1) \; ensayos, \\ \; 1  \;éxito}\} \; \text{cuando} \; r=1$$
+$$\Omega_{Binomial ^{(-)}}=\{E, FE, FFE,..., \underbrace{FFF...FE}_{x \; ensayos, \\ \; 1  \;éxito}\} \; \text{cuando} \; r=1$$
 A la variable aleatoria X se le puede describir la función de Masa de probabilidad de la siguiente forma:
 
 
@@ -59,11 +58,11 @@ $$\Omega_{Binomial ^{(-)}}=\{E E, F E E, E F E,..., \underbrace{F F E F...F}_{(x
 
 - $r=3$
 
-$$\Omega_{Binomial ^{(-)}}=\{E E E, F E E E, E F E E,..., \underbrace{F F E E F...F}_{(x-2) \; ensayos \\\;(3-1) \;éxitos}E\} \; \text{cuando} \; r=3$$
+$$\Omega_{Binomial ^{(-)}}=\{E E E, F E E E, E F E E,..., \underbrace{F F E E F...F}_{(x-1) \; ensayos \\\;(3-1) \;éxitos}E\} \; \text{cuando} \; r=3$$
 
 _Observe_ la probabilidad de la cadena de eventos ocurridos antes del tercer éxito.  Esta probabilidad puede ser modelada usando un modelo binomial 
 
-$$\binom{x-1}{3-1}p^{x-1}q^{3-1}$$
+$$\binom{x-1}{3-1}p^{r-1}q^{x-1}$$
 
 
 
@@ -91,21 +90,18 @@ $$\binom{x-1}{3-1}p^{x-1}q^{3-1}$$
 
 Para establecer la forma funcional del modelo, la cadena de eventos previa al r-ésimo éxito tiene la forma:
 
-$$\binom{x-1}{r-1}p^{x-1}q^{r-1}$$
+$$\binom{x-1}{r-1}p^{r-1}q^{x-1}$$
 
 Con esto, la probabilidad del evento en que ocurren los r éxitos:
 
 $$
-P(X=x)=\binom{x-1}{r-1}p^{x-1}q^{x-1}p
+P(X=x)=\binom{x-1}{r-1}p^{r-1}q^{x-1}p
 $$
 
 
 
 ## Modelo Probabilístico
 
-
-
-### Función de probabilidad
 
 $$
 P(X=x)=\binom{x-1}{r-1}p^rq^{x-1} \; \text{para} \; x=\{r, r+1, r+2, \dots\}
@@ -115,7 +111,7 @@ $$
 
 ---
 
-### Media y varianza
+_Media y varianza_
 
 $$
 E[X] = ?
@@ -127,16 +123,101 @@ $$
 
 ---
 
-## Ejemplo
+### Ejemplo
 
-### Datos
+_Germinación de semillas_
 
-- $r = 2$  
-- $p = 0.40$  
+En un laboratorio de agronomía, cada semilla de maíz tiene probabilidad (0.4) de germinar correctamente.
+
+Se siembran semillas una por una hasta obtener **2 semillas germinadas**.
+
+_Pregunta_
+
+¿Cuál es la probabilidad de que se necesiten exactamente **5 semillas** para obtener las 2 germinaciones exitosas?
 
 ---
 
-### Probabilidad puntual
+
+_Paso 1._ Identificar parámetros
+
+* Número de éxitos requeridos:  $r=2$
+
+* Probabilidad de éxito: $p=0.4$
+
+* Número total de ensayos: $x=5$
+
+---
+
+_Paso 2._ Aplicar la fórmula
+
+$$
+P(X=5)=\binom{5-1}{2-1}(0.4)^2(0.6)^{5-2}
+$$
+
+---
+
+_Paso 3._ Resolver el coeficiente combinatorio
+
+$$\binom{4}{1}=4$$
+
+---
+
+_Paso 4._ Resolver potencias
+
+$(0.4)^2=0.16$, $(0.6)^3=0.216$ 
+
+---
+
+_Paso 5._ Multiplicar 
+
+$P(X=5)=4(0.16)(0.216)$
+
+$$\boxed{P(X=5)=0.13824}$$
+
+---
+
+_Respuesta_
+
+La probabilidad de necesitar exactamente 5 semillas para obtener 2 germinaciones exitosas es aproximadamente:
+
+$\boxed{13.82\%}$
+
+---
+
+_Captura de insectos_
+
+En un cultivo experimental, cada trampa instalada tiene probabilidad (0.4) de capturar un insecto benéfico.
+
+Las trampas se revisan una por una hasta encontrar **2 capturas exitosas**.
+
+_Pregunta_
+
+¿Cuál es la probabilidad de que la segunda captura exitosa ocurra exactamente en la **cuarta trampa revisada**?
+
+---
+
+_Paso 1._ Identificar parámetros
+
+$r=2$ , $p=0.4$, $x=4$
+
+---
+
+_Paso 2._ Aplicar la fórmula
+
+$P(X=4)=\binom{4-1}{2-1}(0.4)^2(0.6)^{4-2}$
+
+---
+$$P(X=4)=0.1728$$
+
+---
+
+_Respuesta_ 
+
+La probabilidad de que la segunda captura exitosa ocurra exactamente en la cuarta trampa es:
+
+$$\boxed{17.28\%}$$
+
+Si se necesita que genminen dos semillas...
 
 $$
 P(se \; tienen  \; que  \; realizar  \; más  \; de  \; 4  \; ensayos) = ?
@@ -151,7 +232,7 @@ $$
 ---
 
 
-#### Control de plagas
+_Control de plagas_
 
 - $p = 0.30$  
 - $r = 10$  
@@ -167,9 +248,26 @@ $$
 
 ---
 
-#### Varianza
+_Varianza_
 
 $$
 \sigma^2 \approx ?
 $$
+
+
+
+
+
+---
+
+
+_La distribución binomial negativa_ es útil en ciencias agrarias para modelar:
+
+* germinación de semillas,
+* aparición de plagas,
+* capturas de insectos,
+* detección de enfermedades vegetales,
+* supervivencia de plantas,
+* éxito reproductivo animal,
+* monitoreo ambiental.
 

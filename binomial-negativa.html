@@ -7,7 +7,7 @@
 <title>Capítulo 6 Binomial Negativa | Modelos de Probabilidad para v.a. Discretas</title>
 <meta name="author" content="J.A. Rueda-Restrepo">
 <meta name="description" content="Suponga que se realizan una serie de experimentos aleatorios Bernoulli Independientes hasta que aparece el primer éxito. ¿Cuántos ensayos se necesitan para obtener un número fijo de éxitos? Si se...">
-<meta name="generator" content="bookdown 0.46 with bs4_book()">
+<meta name="generator" content="bookdown 0.34 with bs4_book()">
 <meta property="og:title" content="Capítulo 6 Binomial Negativa | Modelos de Probabilidad para v.a. Discretas">
 <meta property="og:type" content="book">
 <meta property="og:description" content="Suponga que se realizan una serie de experimentos aleatorios Bernoulli Independientes hasta que aparece el primer éxito. ¿Cuántos ensayos se necesitan para obtener un número fijo de éxitos? Si se...">
@@ -16,7 +16,7 @@
 <meta name="twitter:description" content="Suponga que se realizan una serie de experimentos aleatorios Bernoulli Independientes hasta que aparece el primer éxito. ¿Cuántos ensayos se necesitan para obtener un número fijo de éxitos? Si se...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.10.0/transition.js"></script><script src="libs/bs3compat-0.10.0/tabs.js"></script><script src="libs/bs3compat-0.10.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.5.0/transition.js"></script><script src="libs/bs3compat-0.5.0/tabs.js"></script><script src="libs/bs3compat-0.5.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
     
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
@@ -86,16 +86,13 @@ x = \{r, r+1, r+2, \dots\}
 <li>Si <span class="math inline">\(r=1\)</span>
 </li>
 </ul>
-<p style="text-align: justify;">
-<em>Si me eres infiel una vez, la culpa es tuya. Si me eres infiel una segunda vez, la culpa es mia</em>
-</p>
 <blockquote>
 <p><em>Si me eres infiel una vez, la culpa es tuya. Si me eres infiel una segunda vez, la culpa es mia</em>.</p>
 </blockquote>
-<p><span class="math display">\[\Omega_{Binomial ^{(-)}}=\{E, FE, FFE,..., \underbrace{FFF...FE}_{(x-1) \; ensayos, \\ \; 1  \;éxito}\} \; \text{cuando} \; r=1\]</span>
+<p><span class="math display">\[\Omega_{Binomial ^{(-)}}=\{E, FE, FFE,..., \underbrace{FFF...FE}_{x \; ensayos, \\ \; 1  \;éxito}\} \; \text{cuando} \; r=1\]</span>
 A la variable aleatoria X se le puede describir la función de Masa de probabilidad de la siguiente forma:</p>
 <div class="inline-table"><table class="table table-sm">
-<thead><tr class="header">
+<thead><tr>
 <th><span class="math inline">\(X\)</span></th>
 <th>1</th>
 <th>2</th>
@@ -103,7 +100,7 @@ A la variable aleatoria X se le puede describir la función de Masa de probabili
 <th>4</th>
 <th>…</th>
 </tr></thead>
-<tbody><tr class="odd">
+<tbody><tr>
 <td><span class="math inline">\(P(x)\)</span></td>
 <td><span class="math inline">\(p\)</span></td>
 <td><span class="math inline">\(qp\)</span></td>
@@ -129,38 +126,38 @@ En la medida en que la probabilidad de éxito sea más pequeña, entonces la pro
 <ul>
 <li><span class="math inline">\(r=3\)</span></li>
 </ul>
-<p><span class="math display">\[\Omega_{Binomial ^{(-)}}=\{E E E, F E E E, E F E E,..., \underbrace{F F E E F...F}_{(x-2) \; ensayos \\\;(3-1) \;éxitos}E\} \; \text{cuando} \; r=3\]</span></p>
+<p><span class="math display">\[\Omega_{Binomial ^{(-)}}=\{E E E, F E E E, E F E E,..., \underbrace{F F E E F...F}_{(x-1) \; ensayos \\\;(3-1) \;éxitos}E\} \; \text{cuando} \; r=3\]</span></p>
 <p><em>Observe</em> la probabilidad de la cadena de eventos ocurridos antes del tercer éxito. Esta probabilidad puede ser modelada usando un modelo binomial</p>
-<p><span class="math display">\[\binom{x-1}{3-1}p^{x-1}q^{3-1}\]</span></p>
+<p><span class="math display">\[\binom{x-1}{3-1}p^{r-1}q^{x-1}\]</span></p>
 <div id="comparación" class="section level3" number="6.2.1">
 <h3>
 <span class="header-section-number">6.2.1</span> Comparación<a class="anchor" aria-label="anchor" href="#comparaci%C3%B3n"><i class="fas fa-link"></i></a>
 </h3>
 <div class="inline-table"><table class="table table-sm">
-<thead><tr class="header">
+<thead><tr>
 <th>Característica</th>
 <th>Binomial</th>
 <th>Binomial Negativa</th>
 </tr></thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>Fijo</td>
 <td><span class="math inline">\(n\)</span></td>
 <td><span class="math inline">\(r\)</span></td>
 </tr>
-<tr class="even">
+<tr>
 <td>Variable</td>
 <td>éxitos</td>
 <td>ensayos o fracasos</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>Pregunta</td>
 <td>éxitos en <span class="math inline">\(n\)</span>
 </td>
 <td>ensayos para <span class="math inline">\(r\)</span>
 </td>
 </tr>
-<tr class="even">
+<tr>
 <td>Soporte</td>
 <td><span class="math inline">\(0,\dots,n\)</span></td>
 <td>infinito</td>
@@ -175,10 +172,10 @@ En la medida en que la probabilidad de éxito sea más pequeña, entonces la pro
 <span class="header-section-number">6.2.2</span> Probabilidad<a class="anchor" aria-label="anchor" href="#probabilidad"><i class="fas fa-link"></i></a>
 </h3>
 <p>Para establecer la forma funcional del modelo, la cadena de eventos previa al r-ésimo éxito tiene la forma:</p>
-<p><span class="math display">\[\binom{x-1}{r-1}p^{x-1}q^{r-1}\]</span></p>
+<p><span class="math display">\[\binom{x-1}{r-1}p^{r-1}q^{x-1}\]</span></p>
 <p>Con esto, la probabilidad del evento en que ocurren los r éxitos:</p>
 <p><span class="math display">\[
-P(X=x)=\binom{x-1}{r-1}p^{x-1}q^{x-1}p
+P(X=x)=\binom{x-1}{r-1}p^{r-1}q^{x-1}p
 \]</span></p>
 </div>
 </div>
@@ -186,20 +183,12 @@ P(X=x)=\binom{x-1}{r-1}p^{x-1}q^{x-1}p
 <h2>
 <span class="header-section-number">6.3</span> Modelo Probabilístico<a class="anchor" aria-label="anchor" href="#modelo-probabil%C3%ADstico"><i class="fas fa-link"></i></a>
 </h2>
-<div id="función-de-probabilidad" class="section level3" number="6.3.1">
-<h3>
-<span class="header-section-number">6.3.1</span> Función de probabilidad<a class="anchor" aria-label="anchor" href="#funci%C3%B3n-de-probabilidad"><i class="fas fa-link"></i></a>
-</h3>
 <p><span class="math display">\[
 P(X=x)=\binom{x-1}{r-1}p^rq^{x-1} \; \text{para} \; x=\{r, r+1, r+2, \dots\}
 \]</span></p>
 <hr>
 <hr>
-</div>
-<div id="media-y-varianza" class="section level3" number="6.3.2">
-<h3>
-<span class="header-section-number">6.3.2</span> Media y varianza<a class="anchor" aria-label="anchor" href="#media-y-varianza"><i class="fas fa-link"></i></a>
-</h3>
+<p><em>Media y varianza</em></p>
 <p><span class="math display">\[
 E[X] = ?
 \]</span></p>
@@ -207,28 +196,63 @@ E[X] = ?
 Var(X) = ?
 \]</span></p>
 <hr>
-</div>
-</div>
-<div id="ejemplo-1" class="section level2" number="6.4">
-<h2>
-<span class="header-section-number">6.4</span> Ejemplo<a class="anchor" aria-label="anchor" href="#ejemplo-1"><i class="fas fa-link"></i></a>
-</h2>
-<div id="datos" class="section level3" number="6.4.1">
+<div id="ejemplo-1" class="section level3" number="6.3.1">
 <h3>
-<span class="header-section-number">6.4.1</span> Datos<a class="anchor" aria-label="anchor" href="#datos"><i class="fas fa-link"></i></a>
+<span class="header-section-number">6.3.1</span> Ejemplo<a class="anchor" aria-label="anchor" href="#ejemplo-1"><i class="fas fa-link"></i></a>
 </h3>
+<p><em>Germinación de semillas</em></p>
+<p>En un laboratorio de agronomía, cada semilla de maíz tiene probabilidad (0.4) de germinar correctamente.</p>
+<p>Se siembran semillas una por una hasta obtener <strong>2 semillas germinadas</strong>.</p>
+<p><em>Pregunta</em></p>
+<p>¿Cuál es la probabilidad de que se necesiten exactamente <strong>5 semillas</strong> para obtener las 2 germinaciones exitosas?</p>
+<hr>
+<p><em>Paso 1.</em> Identificar parámetros</p>
 <ul>
-<li>
-<span class="math inline">\(r = 2\)</span><br>
-</li>
-<li><span class="math inline">\(p = 0.40\)</span></li>
+<li><p>Número de éxitos requeridos: <span class="math inline">\(r=2\)</span></p></li>
+<li><p>Probabilidad de éxito: <span class="math inline">\(p=0.4\)</span></p></li>
+<li><p>Número total de ensayos: <span class="math inline">\(x=5\)</span></p></li>
 </ul>
 <hr>
-</div>
-<div id="probabilidad-puntual" class="section level3" number="6.4.2">
-<h3>
-<span class="header-section-number">6.4.2</span> Probabilidad puntual<a class="anchor" aria-label="anchor" href="#probabilidad-puntual"><i class="fas fa-link"></i></a>
-</h3>
+<p><em>Paso 2.</em> Aplicar la fórmula</p>
+<p><span class="math display">\[
+P(X=5)=\binom{5-1}{2-1}(0.4)^2(0.6)^{5-2}
+\]</span></p>
+<hr>
+<p><em>Paso 3.</em> Resolver el coeficiente combinatorio</p>
+<p><span class="math display">\[\binom{4}{1}=4\]</span></p>
+<hr>
+<p><em>Paso 4.</em> Resolver potencias</p>
+<p><span class="math inline">\((0.4)^2=0.16\)</span>, <span class="math inline">\((0.6)^3=0.216\)</span></p>
+<hr>
+<p><em>Paso 5.</em> Multiplicar</p>
+<p><span class="math inline">\(P(X=5)=4(0.16)(0.216)\)</span></p>
+<p><span class="math display">\[\boxed{P(X=5)=0.13824}\]</span></p>
+<hr>
+<p><em>Respuesta</em></p>
+<p>La probabilidad de necesitar exactamente 5 semillas para obtener 2 germinaciones exitosas es aproximadamente:</p>
+<p><span class="math inline">\(\boxed{13.82\%}\)</span></p>
+<hr>
+<p><em>Captura de insectos</em></p>
+<p>En un cultivo experimental, cada trampa instalada tiene probabilidad (0.4) de capturar un insecto benéfico.</p>
+<p>Las trampas se revisan una por una hasta encontrar <strong>2 capturas exitosas</strong>.</p>
+<p><em>Pregunta</em></p>
+<p>¿Cuál es la probabilidad de que la segunda captura exitosa ocurra exactamente en la <strong>cuarta trampa revisada</strong>?</p>
+<hr>
+<p><em>Paso 1.</em> Identificar parámetros</p>
+<p><span class="math inline">\(r=2\)</span> , <span class="math inline">\(p=0.4\)</span>, <span class="math inline">\(x=4\)</span></p>
+<hr>
+<p><em>Paso 2.</em> Aplicar la fórmula</p>
+<p><span class="math inline">\(P(X=4)=\binom{4-1}{2-1}(0.4)^2(0.6)^{4-2}\)</span></p>
+<div class="inline-table"><table style="width:6%;" class="table table-sm">
+<colgroup><col width="5%"></colgroup>
+<tbody><tr>
+<td><span class="math display">\[P(X=4)=0.1728\]</span></td>
+</tr></tbody>
+</table></div>
+<p><em>Respuesta</em></p>
+<p>La probabilidad de que la segunda captura exitosa ocurra exactamente en la cuarta trampa es:</p>
+<p><span class="math display">\[\boxed{17.28\%}\]</span></p>
+<p>Si se necesita que genminen dos semillas…</p>
 <p><span class="math display">\[
 P(se \; tienen  \; que  \; realizar  \; más  \; de  \; 4  \; ensayos) = ?
 \]</span></p>
@@ -237,10 +261,7 @@ P(se \; tienen  \; que  \; realizar  \; más  \; de  \; 4  \; ensayos) = ?
 P(X&gt;4) =P(x=5)+P(x=6)+P(x=7)+ ...= 1-F(4)
 \]</span></p>
 <hr>
-<div id="control-de-plagas" class="section level4" number="6.4.2.1">
-<h4>
-<span class="header-section-number">6.4.2.1</span> Control de plagas<a class="anchor" aria-label="anchor" href="#control-de-plagas"><i class="fas fa-link"></i></a>
-</h4>
+<p><em>Control de plagas</em></p>
 <ul>
 <li>
 <span class="math inline">\(p = 0.30\)</span><br>
@@ -248,24 +269,29 @@ P(X&gt;4) =P(x=5)+P(x=6)+P(x=7)+ ...= 1-F(4)
 <li><span class="math inline">\(r = 10\)</span></li>
 </ul>
 <hr>
-</div>
-<div id="número-esperado" class="section level4" number="6.4.2.2">
+<div id="número-esperado" class="section level4" number="6.3.1.1">
 <h4>
-<span class="header-section-number">6.4.2.2</span> Número esperado<a class="anchor" aria-label="anchor" href="#n%C3%BAmero-esperado"><i class="fas fa-link"></i></a>
+<span class="header-section-number">6.3.1.1</span> Número esperado<a class="anchor" aria-label="anchor" href="#n%C3%BAmero-esperado"><i class="fas fa-link"></i></a>
 </h4>
 <p><span class="math display">\[
 E[X] = ?
 \]</span></p>
 <hr>
-</div>
-<div id="varianza" class="section level4" number="6.4.2.3">
-<h4>
-<span class="header-section-number">6.4.2.3</span> Varianza<a class="anchor" aria-label="anchor" href="#varianza"><i class="fas fa-link"></i></a>
-</h4>
+<p><em>Varianza</em></p>
 <p><span class="math display">\[
 \sigma^2 \approx ?
 \]</span></p>
-
+<hr>
+<p><em>La distribución binomial negativa</em> es útil en ciencias agrarias para modelar:</p>
+<ul>
+<li>germinación de semillas,</li>
+<li>aparición de plagas,</li>
+<li>capturas de insectos,</li>
+<li>detección de enfermedades vegetales,</li>
+<li>supervivencia de plantas,</li>
+<li>éxito reproductivo animal,</li>
+<li>monitoreo ambiental.</li>
+</ul>
 </div>
 </div>
 </div>
@@ -287,16 +313,7 @@ E[X] = ?
 </ul>
 </li>
 <li>
-<a class="nav-link" href="#modelo-probabil%C3%ADstico"><span class="header-section-number">6.3</span> Modelo Probabilístico</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#funci%C3%B3n-de-probabilidad"><span class="header-section-number">6.3.1</span> Función de probabilidad</a></li>
-<li><a class="nav-link" href="#media-y-varianza"><span class="header-section-number">6.3.2</span> Media y varianza</a></li>
-</ul>
-</li>
-<li>
-<a class="nav-link" href="#ejemplo-1"><span class="header-section-number">6.4</span> Ejemplo</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#datos"><span class="header-section-number">6.4.1</span> Datos</a></li>
-<li><a class="nav-link" href="#probabilidad-puntual"><span class="header-section-number">6.4.2</span> Probabilidad puntual</a></li>
-</ul>
+<a class="nav-link" href="#modelo-probabil%C3%ADstico"><span class="header-section-number">6.3</span> Modelo Probabilístico</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#ejemplo-1"><span class="header-section-number">6.3.1</span> Ejemplo</a></li></ul>
 </li>
 </ul>
 
@@ -315,7 +332,7 @@ E[X] = ?
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Modelos de Probabilidad para v.a. Discretas</strong>" was written by J.A. Rueda-Restrepo. It was last built on 2026-05-13.</p>
+    <p>"<strong>Modelos de Probabilidad para v.a. Discretas</strong>" was written by J.A. Rueda-Restrepo. It was last built on 2026-05-14.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

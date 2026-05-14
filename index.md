@@ -1,7 +1,7 @@
 --- 
 title: "Modelos de Probabilidad para v.a. Discretas"
 author: "J.A. Rueda-Restrepo"
-date: "2026-05-13"
+date: "2026-05-14"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib, packages.bib]
@@ -62,12 +62,11 @@ $$E(x)=p$$ $$Var(x)=p(1-p)=p\times q$$
 
 
 
-``` r
+```r
 
 library(dplyr)
-#> Warning: package 'dplyr' was built under R version 4.4.3
 #> 
-#> Adjuntando el paquete: 'dplyr'
+#> Attaching package: 'dplyr'
 #> The following objects are masked from 'package:stats':
 #> 
 #>     filter, lag
@@ -75,7 +74,6 @@ library(dplyr)
 #> 
 #>     intersect, setdiff, setequal, union
 library(tidyr)
-#> Warning: package 'tidyr' was built under R version 4.4.3
 
 # Probabilidades de éxito (p)
 prob_exito <- c(0.05, 0.10, 0.20, 0.30, 0.40, 

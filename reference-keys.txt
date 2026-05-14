@@ -42,14 +42,8 @@ varxsigma2_x-frac1-pp2
 comparación
 probabilidad
 modelo-probabilístico
-función-de-probabilidad
-media-y-varianza
 ejemplo-1
-datos
-probabilidad-puntual
-control-de-plagas
 número-esperado
-varianza
 distribución-de-poisson
 definición-2
 aplicaciones
@@ -58,7 +52,7 @@ ejemplos-1
 ejemplo-1-1
 ejemplo-2-aproximación-poisson-a-binomial
 recomendaciones-metodológicas
-referencias-recomendadas-formato-apa
+referencias-1
 distribución-hipergeométrica
 definición-3
 uso-en-ciencias-agronómicas
@@ -67,4 +61,4 @@ ejemplos-2
 ejemplo-1-control-de-calidad---semillas
 ejemplo-2-monitoreo-de-árboles-infectados
 recomendaciones
-referencias-1
+referencias-2
