@@ -53,12 +53,13 @@ ejemplo-1-1
 ejemplo-2-aproximación-poisson-a-binomial
 recomendaciones-metodológicas
 referencias-1
-distribución-hipergeométrica
+hipergeométrica
 definición-3
 uso-en-ciencias-agronómicas
-relación-con-la-distribución-binomial
 ejemplos-2
 ejemplo-1-control-de-calidad---semillas
 ejemplo-2-monitoreo-de-árboles-infectados
+ejemplo-para-inferencia
+relación-con-la-distribución-binomial
 recomendaciones
 referencias-2

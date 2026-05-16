@@ -1,3 +1,8 @@
+---
+output:
+  pdf_document: default
+  html_document: default
+---
 
 # Binomial Negativa
 
@@ -62,7 +67,7 @@ $$\Omega_{Binomial ^{(-)}}=\{E E E, F E E E, E F E E,..., \underbrace{F F E E F.
 
 _Observe_ la probabilidad de la cadena de eventos ocurridos antes del tercer éxito.  Esta probabilidad puede ser modelada usando un modelo binomial 
 
-$$\binom{x-1}{3-1}p^{r-1}q^{x-1}$$
+$$\binom{x-1}{3-1}p^{r-1}q^{x-r}$$
 
 
 
@@ -90,12 +95,12 @@ $$\binom{x-1}{3-1}p^{r-1}q^{x-1}$$
 
 Para establecer la forma funcional del modelo, la cadena de eventos previa al r-ésimo éxito tiene la forma:
 
-$$\binom{x-1}{r-1}p^{r-1}q^{x-1}$$
+$$\binom{x-1}{r-1}p^{r-1}q^{x-r}$$
 
 Con esto, la probabilidad del evento en que ocurren los r éxitos:
 
 $$
-P(X=x)=\binom{x-1}{r-1}p^{r-1}q^{x-1}p
+P(X=x)=\binom{x-1}{r-1}p^{r-1}q^{x-r}p
 $$
 
 
@@ -104,7 +109,7 @@ $$
 
 
 $$
-P(X=x)=\binom{x-1}{r-1}p^rq^{x-1} \; \text{para} \; x=\{r, r+1, r+2, \dots\}
+P(X=x)=\binom{x-1}{r-1}p^rq^{x-r} \; \text{para} \; x=\{r, r+1, r+2, \dots\}
 $$
 
 ---

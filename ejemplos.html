@@ -7,7 +7,7 @@
 <title>Capítulo 3 Ejemplos | Modelos de Probabilidad para v.a. Discretas</title>
 <meta name="author" content="J.A. Rueda-Restrepo">
 <meta name="description" content="3.1 Germinación de semillas Suponga un experimento en el que se evalúan 4 semillas de un lote para verificar si germinan. Cada semilla puede: Éxito (E): Germina con probabilidad \(p\) Fracaso (F):...">
-<meta name="generator" content="bookdown 0.34 with bs4_book()">
+<meta name="generator" content="bookdown 0.46 with bs4_book()">
 <meta property="og:title" content="Capítulo 3 Ejemplos | Modelos de Probabilidad para v.a. Discretas">
 <meta property="og:type" content="book">
 <meta property="og:description" content="3.1 Germinación de semillas Suponga un experimento en el que se evalúan 4 semillas de un lote para verificar si germinan. Cada semilla puede: Éxito (E): Germina con probabilidad \(p\) Fracaso (F):...">
@@ -16,7 +16,7 @@
 <meta name="twitter:description" content="3.1 Germinación de semillas Suponga un experimento en el que se evalúan 4 semillas de un lote para verificar si germinan. Cada semilla puede: Éxito (E): Germina con probabilidad \(p\) Fracaso (F):...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.5.0/transition.js"></script><script src="libs/bs3compat-0.5.0/tabs.js"></script><script src="libs/bs3compat-0.5.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.10.0/transition.js"></script><script src="libs/bs3compat-0.10.0/tabs.js"></script><script src="libs/bs3compat-0.10.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
     
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
@@ -50,7 +50,7 @@
 <li><a class="" href="funci%C3%B3n-acumulada-fap.html"><span class="header-section-number">5</span> Función Acumulada (FAP)</a></li>
 <li><a class="" href="binomial-negativa.html"><span class="header-section-number">6</span> Binomial Negativa</a></li>
 <li><a class="" href="distribuci%C3%B3n-de-poisson.html"><span class="header-section-number">7</span> Distribución de Poisson</a></li>
-<li><a class="" href="distribuci%C3%B3n-hipergeom%C3%A9trica.html"><span class="header-section-number">8</span> Distribución Hipergeométrica</a></li>
+<li><a class="" href="hipergeom%C3%A9trica.html"><span class="header-section-number">8</span> Hipergeométrica</a></li>
 </ul>
 
         <div class="book-extra">
@@ -84,7 +84,7 @@
 <col width="34%">
 <col width="26%">
 </colgroup>
-<thead><tr>
+<thead><tr class="header">
 <th>Número</th>
 <th>Evento</th>
 <th>Secuencia</th>
@@ -93,112 +93,112 @@
 <span class="math inline">\(X\)</span> (N° Éxitos)</th>
 </tr></thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>1</td>
 <td><span class="math inline">\(\omega_1\)</span></td>
 <td>E E E E</td>
 <td><span class="math inline">\(p^4\)</span></td>
 <td>4</td>
 </tr>
-<tr>
+<tr class="even">
 <td>2</td>
 <td><span class="math inline">\(\omega_2\)</span></td>
 <td>E E E F</td>
 <td><span class="math inline">\(p^3(1-p)\)</span></td>
 <td>3</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>3</td>
 <td><span class="math inline">\(\omega_3\)</span></td>
 <td>E E F E</td>
 <td><span class="math inline">\(p^3(1-p)\)</span></td>
 <td>3</td>
 </tr>
-<tr>
+<tr class="even">
 <td>4</td>
 <td><span class="math inline">\(\omega_4\)</span></td>
 <td>E F E E</td>
 <td><span class="math inline">\(p^3(1-p)\)</span></td>
 <td>3</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>5</td>
 <td><span class="math inline">\(\omega_5\)</span></td>
 <td>F E E E</td>
 <td><span class="math inline">\(p^3(1-p)\)</span></td>
 <td>3</td>
 </tr>
-<tr>
+<tr class="even">
 <td>6</td>
 <td><span class="math inline">\(\omega_6\)</span></td>
 <td>E E F F</td>
 <td><span class="math inline">\(p^2(1-p)^2\)</span></td>
 <td>2</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>7</td>
 <td><span class="math inline">\(\omega_7\)</span></td>
 <td>E F E F</td>
 <td><span class="math inline">\(p^2(1-p)^2\)</span></td>
 <td>2</td>
 </tr>
-<tr>
+<tr class="even">
 <td>8</td>
 <td><span class="math inline">\(\omega_8\)</span></td>
 <td>E F F E</td>
 <td><span class="math inline">\(p^2(1-p)^2\)</span></td>
 <td>2</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>9</td>
 <td><span class="math inline">\(\omega_9\)</span></td>
 <td>F E E F</td>
 <td><span class="math inline">\(p^2(1-p)^2\)</span></td>
 <td>2</td>
 </tr>
-<tr>
+<tr class="even">
 <td>10</td>
 <td><span class="math inline">\(\omega_{10}\)</span></td>
 <td>F E F E</td>
 <td><span class="math inline">\(p^2(1-p)^2\)</span></td>
 <td>2</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>11</td>
 <td><span class="math inline">\(\omega_{11}\)</span></td>
 <td>F F E E</td>
 <td><span class="math inline">\(p^2(1-p)^2\)</span></td>
 <td>2</td>
 </tr>
-<tr>
+<tr class="even">
 <td>12</td>
 <td><span class="math inline">\(\omega_{12}\)</span></td>
 <td>E F F F</td>
 <td><span class="math inline">\(p(1-p)^3\)</span></td>
 <td>1</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>13</td>
 <td><span class="math inline">\(\omega_{13}\)</span></td>
 <td>F E F F</td>
 <td><span class="math inline">\(p(1-p)^3\)</span></td>
 <td>1</td>
 </tr>
-<tr>
+<tr class="even">
 <td>14</td>
 <td><span class="math inline">\(\omega_{14}\)</span></td>
 <td>F F E F</td>
 <td><span class="math inline">\(p(1-p)^3\)</span></td>
 <td>1</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>15</td>
 <td><span class="math inline">\(\omega_{15}\)</span></td>
 <td>F F F E</td>
 <td><span class="math inline">\(p(1-p)^3\)</span></td>
 <td>1</td>
 </tr>
-<tr>
+<tr class="even">
 <td>16</td>
 <td><span class="math inline">\(\omega_{16}\)</span></td>
 <td>F F F F</td>
@@ -221,7 +221,7 @@
 <col width="26%">
 <col width="27%">
 </colgroup>
-<thead><tr>
+<thead><tr class="header">
 <th>
 <span class="math inline">\(x\)</span> (N° Éxitos)</th>
 <th>Eventos Favorables</th>
@@ -230,31 +230,31 @@
 </th>
 </tr></thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>0</td>
 <td>FFFF</td>
 <td>1</td>
 <td>$1 p^0 (1-p)^4 $</td>
 </tr>
-<tr>
+<tr class="even">
 <td>1</td>
 <td>EFFF, FEFF, FFEF, FFFE</td>
 <td>4</td>
 <td><span class="math inline">\(4\times p^1(1-p)^3\)</span></td>
 </tr>
-<tr>
+<tr class="odd">
 <td>2</td>
 <td>EEFF, EFEF, EFFE, FEEF, FEFE, FFEE</td>
 <td>6</td>
 <td><span class="math inline">\(6\times p^2(1-p)^2\)</span></td>
 </tr>
-<tr>
+<tr class="even">
 <td>3</td>
 <td>EEEF, EEFE, EFEE, FEEE</td>
 <td>4</td>
 <td><span class="math inline">\(4\times p^3(1-p)^1\)</span></td>
 </tr>
-<tr>
+<tr class="odd">
 <td>4</td>
 <td>EEEE</td>
 <td>1</td>
@@ -310,33 +310,33 @@ Existe un <strong>41.16%</strong> de probabilidad de que exactamente 3 de las 4 
 <span class="header-section-number">3.1.5</span> Tabla de Probabilidades<a class="anchor" aria-label="anchor" href="#tabla-de-probabilidades"><i class="fas fa-link"></i></a>
 </h3>
 <div class="inline-table"><table class="table table-sm">
-<thead><tr>
+<thead><tr class="header">
 <th><span class="math inline">\(x\)</span></th>
 <th>Cálculo</th>
 <th><span class="math inline">\(P(X=x)\)</span></th>
 </tr></thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>0</td>
 <td><span class="math inline">\(\binom{4}{0}(0.7)^0(0.3)^4 = 1 \cdot 1 \cdot 0.0081\)</span></td>
 <td>0.0081</td>
 </tr>
-<tr>
+<tr class="even">
 <td>1</td>
 <td><span class="math inline">\(\binom{4}{1}(0.7)^1(0.3)^3 = 4 \cdot 0.7 \cdot 0.027\)</span></td>
 <td>0.0756</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>2</td>
 <td><span class="math inline">\(\binom{4}{2}(0.7)^2(0.3)^2 = 6 \cdot 0.49 \cdot 0.09\)</span></td>
 <td>0.2646</td>
 </tr>
-<tr>
+<tr class="even">
 <td>3</td>
 <td><span class="math inline">\(\binom{4}{3}(0.7)^3(0.3)^1 = 4 \cdot 0.343 \cdot 0.3\)</span></td>
 <td>0.4116</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>4</td>
 <td><span class="math inline">\(\binom{4}{4}(0.7)^4(0.3)^0 = 1 \cdot 0.2401 \cdot 1\)</span></td>
 <td>0.2401</td>
@@ -525,7 +525,7 @@ Calculamos <span class="math inline">\(P(X \geq 100)\)</span> con <span class="m
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Modelos de Probabilidad para v.a. Discretas</strong>" was written by J.A. Rueda-Restrepo. It was last built on 2026-05-14.</p>
+    <p>"<strong>Modelos de Probabilidad para v.a. Discretas</strong>" was written by J.A. Rueda-Restrepo. It was last built on 2026-05-16.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
